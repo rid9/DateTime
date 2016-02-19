@@ -1,0 +1,140 @@
+{
+    "name": "datetime",
+    "displayName": "Date & Time",
+    "description": "Date & Time support for Visual Studio Code.",
+    "version": "0.1.0",
+    "icon": "images/icon.png",
+    "publisher": "rid9",
+    "engines": {
+        "vscode": "^0.10.6"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Date & Time Configuration",
+            "properties": {
+                "dateTime.showOnStartup": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show Date & Time when Visual Studio Code starts up."
+                },
+                "dateTime.use24HourClock": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Use a 24 hour clock."
+                },
+                "dateTime.showAMPM": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show AM/PM."
+                },
+                "dateTime.showDayOfWeek": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show the day of the week."
+                },
+                "dateTime.showDayOfMonth": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show the day of the month."
+                },
+                "dateTime.showMonth": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show the month."
+                },
+                "dateTime.showHours": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show hours."
+                },
+                "dateTime.showMinutes": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show minutes."
+                },
+                "dateTime.showSeconds": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show seconds."
+                },
+                "dateTime.padDays": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Pad the day of the month with a leading 0."
+                },
+                "dateTime.padHours": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Pad hours with a leading 0."
+                },
+                "dateTime.padMinutes": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Pad minutes with a leading 0."
+                },
+                "dateTime.padSeconds": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Pad seconds with a leading 0."
+                },
+                "dateTime.flashTimeSeparators": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Flash the time separators."
+                },
+                "dateTime.timeSeparator": {
+                    "type": "string",
+                    "default": ":",
+                    "description": "Time separator character."
+                },
+                "dateTime.timeSeparatorOff": {
+                    "type": "string",
+                    "default": " ",
+                    "description": "Flashing time separator character."
+                },
+                "dateTime.customFormat": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Use a custom Date & Time format. See http://momentjs.com/docs/#/displaying/format/ for options."
+                },
+                "dateTime.fractionalSecondPrecision": {
+                    "type": "number",
+                    "default": null,
+                    "description": "Number by which the update interval is divided, if the format contains fractional seconds.",
+                    "minimum": 1,
+                    "maximum": 100
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "dateTime.show",
+                "title": "Show Date & Time"
+            },
+            {
+                "command": "dateTime.hide",
+                "title": "Hide Date & Time"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile && node ./doc.js",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^1.7.5",
+        "vscode": "^0.11.0"
+    },
+    "dependencies": {
+        "moment": "^2.11.2"
+    }
+}
