@@ -1,6 +1,6 @@
 # Date & Time
 
-Date & Time support for Visual Studio Code.
+Displays date and time information in the status bar.
 
 ![Screenshot](./images/screenshot.png)
 
