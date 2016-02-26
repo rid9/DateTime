@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays date and time information in the status bar.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/rid9/DateTime.git"
