@@ -83,8 +83,8 @@ export function shouldShowFractionalSeconds(): boolean {
     return getFormat(FlashState.On).indexOf('S') > -1;
 }
 
-export function getFractionalSecondPrecision(): number {
-    let precision: number = getConfiguration("fractionalSecondPrecision");
+export function getFractionalPrecision(): number {
+    let precision: number = getConfiguration("fractionalPrecision");
 
     if (typeof precision !== "number") {
         const format = getFormat(FlashState.On);
@@ -173,13 +173,13 @@ function composeFormat(flashState: FlashState): string {
         } else {
             format += shouldPadHours() ? "hh" : "h";
         }
-    }    
+    }
 
     if (shouldShowMinutes()) {
         format +=
             (shouldShowHours() ? separator : "") +
             (shouldPadMinutes() ? "mm" : "m");
-    }    
+    }
 
     if (shouldShowSeconds()) {
         format +=

@@ -109,7 +109,7 @@
                     "default": null,
                     "description": "Use a custom Date & Time format. See http://momentjs.com/docs/#/displaying/format/ for options."
                 },
-                "dateTime.fractionalSecondPrecision": {
+                "dateTime.fractionalPrecision": {
                     "type": "number",
                     "default": null,
                     "description": "Number by which the update interval is divided, if the format contains fractional seconds.",

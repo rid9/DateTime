@@ -31,7 +31,7 @@ export function stopSchedule() {
 function scheduleMillisecondUpdates(callback: Function) {
     updateInterval = setInterval(
         callback,
-        (1 / configuration.getFractionalSecondPrecision()) * seconds);
+        (1 / configuration.getFractionalPrecision()) * seconds);
 }
 
 function scheduleSecondUpdates(callback: Function) {
