@@ -27,67 +27,79 @@
                 "dateTime.showOnStartup": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show Date & Time when Visual Studio Code starts up."
+                    "description": "Show date & time on startup."
                 },
                 "dateTime.use24HourClock": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Use a 24 hour clock."
+                    "description": "Use a 24 hour clock.",
+                    "dateTime_example": "**18**:43"
                 },
                 "dateTime.showAMPM": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show AM/PM."
+                    "description": "Show AM/PM.",
+                    "dateTime_example": "7:43 **PM**"
                 },
                 "dateTime.showDayOfWeek": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show the day of the week."
+                    "description": "Show the day of the week.",
+                    "dateTime_example": "**Fri** 1 Jul"
                 },
                 "dateTime.showDayOfMonth": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show the day of the month."
+                    "description": "Show the day of the month.",
+                    "dateTime_example": "Fri **1** Jul"
                 },
                 "dateTime.showMonth": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show the month."
+                    "description": "Show the month.",
+                    "dateTime_example": "Fri 1 **Jul**"
                 },
                 "dateTime.showHours": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show hours."
+                    "description": "Show hours.",
+                    "dateTime_example": "**18**:43"
                 },
                 "dateTime.showMinutes": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show minutes."
+                    "description": "Show minutes.",
+                    "dateTime_example": "18:**43**"
                 },
                 "dateTime.showSeconds": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Show seconds."
+                    "description": "Show seconds.",
+                    "dateTime_example": "18:43:**12**"
                 },
                 "dateTime.padDays": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Pad the day of the month with a leading 0."
+                    "description": "Pad the day of the month with a leading 0.",
+                    "dateTime_example": "Fri **01** Jul"
                 },
                 "dateTime.padHours": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Pad hours with a leading 0."
+                    "description": "Pad hours with a leading 0.",
+                    "dateTime_example": "**09**:43"
                 },
                 "dateTime.padMinutes": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Pad minutes with a leading 0."
+                    "description": "Pad minutes with a leading 0.",
+                    "dateTime_example": "18:**03**"
                 },
                 "dateTime.padSeconds": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Pad seconds with a leading 0."
+                    "description": "Pad seconds with a leading 0.",
+                    "dateTime_example": "18:43:**04**"
                 },
                 "dateTime.flashTimeSeparators": {
                     "type": "boolean",
@@ -107,12 +119,12 @@
                 "dateTime.customFormat": {
                     "type": "string",
                     "default": null,
-                    "description": "Use a custom Date & Time format. See http://momentjs.com/docs/#/displaying/format/ for options."
+                    "description": "Use a custom date & time format."
                 },
                 "dateTime.fractionalPrecision": {
                     "type": "number",
                     "default": null,
-                    "description": "Number by which the update interval is divided, if the format contains fractional seconds.",
+                    "description": "Update interval divisor for fractional seconds.",
                     "minimum": 1,
                     "maximum": 100
                 }
