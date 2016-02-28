@@ -7,6 +7,7 @@
         "type": "git",
         "url": "https://github.com/rid9/DateTime.git"
     },
+    "bugs": "https://github.com/rid9/DateTime/issues",
     "icon": "images/icon.png",
     "publisher": "rid9",
     "engines": {
