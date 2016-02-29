@@ -1,7 +1,7 @@
 {
     "name": "datetime",
     "displayName": "Date & Time",
-    "description": "Displays date and time information in the status bar.",
+    "description": "Displays a clock and date information in the status bar.",
     "version": "1.0.3",
     "repository": {
         "type": "git",

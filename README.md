@@ -1,6 +1,6 @@
 # Date & Time
 
-Displays date and time information in the status bar.
+Displays a clock and date information in the status bar.
 
 ![Screenshot](./images/screenshot.png)
 
