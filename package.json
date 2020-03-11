@@ -118,12 +118,18 @@
                     "description": "Flashing time separator character."
                 },
                 "dateTime.customFormat": {
-                    "type": ["string", "null"],
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "default": null,
                     "description": "Use a custom date & time format."
                 },
                 "dateTime.fractionalPrecision": {
-                    "type": ["number", "null"],
+                    "type": [
+                        "number",
+                        "null"
+                    ],
                     "default": null,
                     "description": "Update interval divisor for fractional seconds.",
                     "minimum": 1,
