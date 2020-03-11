@@ -97,7 +97,7 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 
 ```javascript
 // Friday, January 1st, 2016
-"dateTime.customFormat": "dddd, MMMM Mo, YYYY"
+"dateTime.customFormat": "dddd, MMMM Do, YYYY"
 
 // 2016-01-01 10:12:03
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
