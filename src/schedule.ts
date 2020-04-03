@@ -6,7 +6,7 @@ const minutes = 60 * seconds;
 let firstUpdateTimeout: any;
 let updateInterval: any;
 
-export function startSchedule(callback: Function) {
+export function startSchedule(callback: (...args: any[]) => void) {
     if (configuration.shouldShowFractionalSeconds()) {
         scheduleMillisecondUpdates(callback);
     } else if (configuration.shouldShowSeconds() || configuration.shouldFlashTimeSeparators()) {
@@ -28,17 +28,17 @@ export function stopSchedule() {
     }
 }
 
-function scheduleMillisecondUpdates(callback: Function) {
+function scheduleMillisecondUpdates(callback: (...args: any[]) => void) {
     updateInterval = setInterval(
         callback,
         (1 / configuration.getFractionalPrecision()) * seconds);
 }
 
-function scheduleSecondUpdates(callback: Function) {
+function scheduleSecondUpdates(callback: (...args: any[]) => void) {
     updateInterval = setInterval(callback, 1 * seconds);
 }
 
-function scheduleMinuteUpdates(callback: Function) {
+function scheduleMinuteUpdates(callback: (...args: any[]) => void) {
     firstUpdateTimeout = setTimeout(() => {
         callback();
         updateInterval = setInterval(callback, (1 * minutes));
