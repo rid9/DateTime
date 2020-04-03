@@ -1,6 +1,6 @@
-# Date & Time
+# Shows Date/Time on VSCode statusbar and Monthly Calendar upon click
 
-Displays a clock and date information in the status bar.
+Displays a clock and date information in the status bar of VSCode. 99% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git), and all I did here is just showing monthly calendar upon click, and at this time, that works only on Mac/Linux. Stay tuned...
 
 ![Screenshot](./images/screenshot.png)
 
@@ -102,3 +102,8 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 // 2016-01-01 10:12:03
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
 ```
+
+## Release Notes
+
+### v0.1.0
+Not even a "release," just adjusted it to ES6 and locally installed (by copying `package.json` and `out` to `$HOME/.vscode/extensions/miyamotoh-vscal2-0.1.0` dir) but works.. :blush:
