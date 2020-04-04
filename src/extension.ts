@@ -35,9 +35,10 @@ function removeDateTime() {
 }
 
 function showMonthlyCalendar() {
-    const cp = require('child_process')
-    cp.exec('MON=$(date +%-m); DAY=$(date +%-d); cd /tmp; cal -h -m $(expr $MON - 1) > .vscal-1.txt; cal -h -m $(expr $MON + 1) > .vscal-3.txt; (cal -h -m $MON | sed "s/ $DAY /\[$DAY\]/") > .vscal-2.md; paste .vscal-1.txt .vscal-2.md .vscal-3.txt > .vscal.md ; rm -f .vscal-[123]*', 2000);
-    let calendar = Uri.file('/tmp/.vscal.md');
+    const cp = require('child_process');
+    const cf = '.vscal.md';
+    cp.exec('MON=$(date +%-m); DAY=$(date +%-d); cd /tmp; cal -h -m $(expr $MON - 1) > .vscal-1.txt; cal -h -m $(expr $MON + 1) > .vscal-3.txt; (cal -h -m $MON | sed "s/ $DAY /\[$DAY\]/") > .vscal-2.md; paste .vscal-1.txt .vscal-2.md .vscal-3.txt > '+cf+'; rm -f .vscal-[123]*', 2000);
+    let calendar = Uri.file('/tmp/'+cf);
     window.showTextDocument(calendar);
 }
 
