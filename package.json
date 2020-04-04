@@ -208,7 +208,7 @@
                 "command": "extension.calendar",
                 "key": "Ctrl+Cmd+C"
             }
-        ]
+       ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
