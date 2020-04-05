@@ -148,6 +148,10 @@ export function shouldFlashTimeSeparators(): boolean {
     return getConfiguration("flashTimeSeparators");
 }
 
+export function howManyMonthsCalendar(): number {
+    return getConfiguration("calendarMonths");
+}
+
 export function getFormat(flashState: FlashState): string {
     if (!cache.format[flashState]) {
         cache.format[flashState] = getCustomFormat(flashState) || composeFormat(flashState);

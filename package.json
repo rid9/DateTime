@@ -134,6 +134,16 @@
                     "description": "Update interval divisor for fractional seconds.",
                     "minimum": 1,
                     "maximum": 100
+                },
+                "dateTime.calendarMonths": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "default": 3,
+                    "description": "How many months to show in calendar view.",
+                    "minimum": 3,
+                    "maximum": 99
                 }
             }
         },
