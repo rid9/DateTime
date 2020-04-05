@@ -28,6 +28,7 @@ Displays a clock and date information in the status bar of VSCode. 99% of the fu
 |`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.             |              |
 |`dateTime.customFormat`       |`null` |Use a custom date & time format.               |              |
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.|              |
+|`dateTime.calendarMonths`     |`3`    |How many months to show in calendar view.      |12            |
 
 ### Example usage
 
@@ -106,6 +107,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 ```
 
 ## Release Notes
+
+### v0.2.0
+Still Mac/Linux only, and still not installable, but added `dateTime.calendarMonths` config param for customizing how many months to show in calendar view.
 
 ### v0.1.0
 Not even a "release," just adjusted it to ES6 and locally installed (by copying `package.json` and `out` to `$HOME/.vscode/extensions/miyamotoh-vscal2-0.1.0` dir) but works.. :blush:
