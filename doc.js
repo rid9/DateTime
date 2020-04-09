@@ -16,38 +16,38 @@ markdownText += "![Screenshot](./images/screenshot.png)\n\n";
 
 markdownText += "## Configuration Options\n\n";
 
-var field = function(parameters) {
+var field = function (parameters) {
     parameters.maximumLength = 0;
     return parameters;
-}
+};
 
 var fields = [
-    field({ title: 'Option', name: 'name', isCode: true }),
-    field({ title: 'Default', name: 'default', isCode: true }),
-    field({ title: 'Description', name: 'description' }),
-    field({ title: 'Example', name: 'dateTime_example' })
+    field({ title: "Option", name: "name", isCode: true }),
+    field({ title: "Default", name: "default", isCode: true }),
+    field({ title: "Description", name: "description" }),
+    field({ title: "Example", name: "dateTime_example" }),
 ];
 
-fields.forEach(function(field) {
+fields.forEach(function (field) {
     field.maximumLength = field.title.length;
 });
 
-var renderValue = function(value) {
+var renderValue = function (value) {
     if (value === void 0) {
-        return '';
+        return "";
     } else if (value === null) {
-        return 'null';
-    } else if (typeof value === 'boolean') {
-        return value ? 'true' : 'false';
+        return "null";
+    } else if (typeof value === "boolean") {
+        return value ? "true" : "false";
     } else {
         return value.toString();
     }
-}
+};
 
-var properties = Object.keys(packageProperties).map(function(key) {
+var properties = Object.keys(packageProperties).map(function (key) {
     var property = {};
 
-    fields.forEach(function(field, index) {
+    fields.forEach(function (field, index) {
         var rawProperty = packageProperties[key];
         var value = renderValue(index === 0 ? key : rawProperty[field.name]);
 
@@ -66,39 +66,44 @@ var properties = Object.keys(packageProperties).map(function(key) {
     return property;
 });
 
-var pad = function(value, length, character) {
+var pad = function (value, length, character) {
     length -= value.length;
     for (var i = 0; i < length; i++) {
         value += character;
     }
     return value;
-}
+};
 
 markdownText += "|";
-fields.forEach(function(field) {
+fields.forEach(function (field) {
     markdownText += pad(field.title, field.maximumLength, " ");
     markdownText += "|";
 });
 markdownText += "\n";
 
 markdownText += "|";
-fields.forEach(function(field) {
-    markdownText += pad("", Math.max(field.title.length, field.maximumLength), "-");
+fields.forEach(function (field) {
+    markdownText += pad(
+        "",
+        Math.max(field.title.length, field.maximumLength),
+        "-"
+    );
     markdownText += "|";
 });
 markdownText += "\n";
 
-properties.forEach(function(property) {
+properties.forEach(function (property) {
     markdownText += "|";
-    fields.forEach(function(field) {
+    fields.forEach(function (field) {
         markdownText += pad(property[field.name], field.maximumLength, " ");
         markdownText += "|";
     });
     markdownText += "\n";
 });
 
-markdownText += '' +
-`
+markdownText +=
+    "" +
+    `
 ### Example usage
 
 \`\`\`javascript
