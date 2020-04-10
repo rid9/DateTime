@@ -29,6 +29,10 @@ function removeDateTime() {
     isRunning = false;
 }
 
+function copyDateTime() {
+    vscode.env.clipboard.writeText(getDateTimeText(FlashState.On));
+}
+
 function getDateTimeText(flashState: FlashState): string {
     return moment().format(configuration.getFormat(flashState));
 }
@@ -93,6 +97,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(
         vscode.commands.registerCommand("dateTime.hide", removeDateTime)
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("dateTime.copy", copyDateTime)
     );
 
     updateDateTime();
