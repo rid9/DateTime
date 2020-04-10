@@ -52,8 +52,11 @@ export function shouldShowOnStartup(): boolean {
     return getConfiguration("showOnStartup");
 }
 
-export function getCustomFormat(flashState: FlashState): string | null {
-    const format = getConfiguration("customFormat");
+export function getCustomFormat(
+    flashState: FlashState,
+    property = "customFormat"
+): string | null {
+    const format = getConfiguration(property);
 
     if (!format) {
         return null;

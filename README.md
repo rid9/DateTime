@@ -25,6 +25,7 @@ Displays a clock and date information in the status bar.
 |`dateTime.timeSeparator`      |`:`    |Time separator character.                      |              |
 |`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.             |              |
 |`dateTime.customFormat`       |`null` |Use a custom date & time format.               |              |
+|`dateTime.clipboardFormat`    |`null` |Use a custom date & time format when copying.  |              |
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.|              |
 
 ### Example usage

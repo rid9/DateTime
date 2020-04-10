@@ -124,6 +124,14 @@
                     "default": null,
                     "description": "Use a custom date & time format."
                 },
+                "dateTime.clipboardFormat": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Use a custom date & time format when copying."
+                },
                 "dateTime.fractionalPrecision": {
                     "type": [
                         "number",

@@ -4,6 +4,11 @@ import * as configuration from "./configuration";
 import { FlashState } from "./configuration";
 import { startSchedule, stopSchedule } from "./schedule";
 
+enum FormatType {
+    Status,
+    Clipboard,
+}
+
 let statusBarItem: vscode.StatusBarItem | undefined;
 
 let isRunning = false;
@@ -30,11 +35,28 @@ function removeDateTime() {
 }
 
 function copyDateTime() {
-    vscode.env.clipboard.writeText(getDateTimeText(FlashState.On));
+    vscode.env.clipboard.writeText(
+        getDateTimeText(FlashState.On, FormatType.Clipboard)
+    );
 }
 
-function getDateTimeText(flashState: FlashState): string {
-    return moment().format(configuration.getFormat(flashState));
+function getDateTimeText(
+    flashState: FlashState,
+    formatType: FormatType
+): string {
+    let format: string | undefined;
+
+    if (formatType === FormatType.Clipboard) {
+        format =
+            configuration.getCustomFormat(FlashState.On, "clipboardFormat") ||
+            undefined;
+    }
+
+    if (!format) {
+        format = configuration.getFormat(flashState);
+    }
+
+    return moment().format(format);
 }
 
 let currentFlashState: FlashState;
@@ -61,7 +83,7 @@ function updateDateTime() {
             return;
         }
 
-        statusBarItem.text = getDateTimeText(flashState);
+        statusBarItem.text = getDateTimeText(flashState, FormatType.Status);
 
         if (shouldShow) {
             statusBarItem.show();
