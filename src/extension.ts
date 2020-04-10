@@ -75,7 +75,8 @@ function updateDateTime() {
 
 function createStatusBarItem() {
     statusBarItem = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Right
+        vscode.StatusBarAlignment.Right,
+        -1
     );
     statusBarItem.command = "dateTime.copy";
     isStatusBarVisible = true;
