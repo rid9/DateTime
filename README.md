@@ -42,7 +42,7 @@ Displays a clock and date information in the status bar.
 
 ## Custom date & time format
 
-Custom date & time formats can be specified using the [Moment.js syntax](http://momentjs.com/docs/#/displaying/format/).
+Custom date & time formats can be specified using the [Moment.js syntax](https://momentjs.com/docs/#/parsing/string-format/).
 
 |                          |Token  |Output                                |
 |--------------------------|-------|--------------------------------------|
@@ -91,6 +91,8 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 |Fractional Second         |`S`    |0 1 ... 8 9                           |
 |                          |`SS`   |00 01 ... 98 99                       |
 |                          |`SSS`  |000 001 ... 998 999                   |
+|Offset from UTC           |`Z`    |-12:00 -01:00 ... +01:00 +12:00       |
+|                          |`ZZ`   |-1200 -0100 ... +0100 +1200           |
 |Unix Timestamp            |`X`    |1360013296                            |
 |Unix Millisecond Timestamp|`x`    |1360013296123                         |
 
@@ -100,6 +102,6 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 // Friday, January 1st, 2016
 "dateTime.customFormat": "dddd, MMMM Do, YYYY"
 
-// 2016-01-01 10:12:03
-"dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
+// 2016-01-01T10:12:03+02:00
+"dateTime.customFormat": "YYYY-MM-DDTHH:mm:ssZ"
 ```
