@@ -2,7 +2,7 @@
     "name": "vscal2",
     "displayName": "Date, Time, & Calendar",
     "description": "Displays a clock and date information in the status bar, and monthly calendar upon click.",
-    "version": "1.1.0",
+    "version": "0.5.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/miyamotoh/vscal2.git"
@@ -174,7 +174,9 @@
         "lint": "eslint src --ext ts",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
-        "test": "node ./out/test/runTest.js"
+        "test": "node ./out/test/runTest.js",
+        "package": "vsce package",
+        "publish": "vsce publish"
     },
     "devDependencies": {
         "@types/glob": "^7.1.1",
