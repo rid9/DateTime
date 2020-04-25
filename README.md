@@ -108,7 +108,10 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 
 ## Release Notes
 
-### v0.5.0
+### v1.2.0
+New hand-designed icon, while trying to sync the version# with Marketplace...
+
+### v0.5.0 (=v1.1.0 on VSCode Marketplace)
 Still Mac/Linux only, but now installable (by following [this page](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)), along with highlighting the current month in calendar view.
 
 ### v0.2.0
