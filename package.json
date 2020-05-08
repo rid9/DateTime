@@ -133,6 +133,14 @@
                     "default": null,
                     "description": "Use a custom date & time format when copying."
                 },
+                "dateTime.locale": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Locale used for formatting."
+                },
                 "dateTime.fractionalPrecision": {
                     "type": [
                         "number",

@@ -56,6 +56,7 @@ function getDateTimeText(
         format = configuration.getFormat(flashState);
     }
 
+    moment.locale(configuration.getLocale());
     return moment().format(format);
 }
 

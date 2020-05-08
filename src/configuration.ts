@@ -1,4 +1,5 @@
 import { workspace } from "vscode";
+import * as vscode from "vscode";
 
 export enum FlashState {
     On = 1,
@@ -67,6 +68,16 @@ export function getCustomFormat(
     } else {
         const reSeparator = getFormatTimeSeparatorRegExp();
         return format.replace(reSeparator, "$1" + getTimeSeparatorOff());
+    }
+}
+
+export function getLocale(): string {
+    const locale = getConfiguration("locale");
+
+    if (!locale) {
+        return vscode.env.language;
+    } else {
+        return locale;
     }
 }
 
