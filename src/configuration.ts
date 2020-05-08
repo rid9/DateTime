@@ -1,5 +1,4 @@
-import { workspace } from "vscode";
-import * as vscode from "vscode";
+import { env, workspace } from "vscode";
 
 export enum FlashState {
     On = 1,
@@ -72,13 +71,7 @@ export function getCustomFormat(
 }
 
 export function getLocale(): string {
-    const locale = getConfiguration("locale");
-
-    if (!locale) {
-        return vscode.env.language;
-    } else {
-        return locale;
-    }
+    return getConfiguration("locale") || env.language;
 }
 
 const timeCharacters = "HhmSs";
