@@ -102,6 +102,15 @@
                     "description": "Pad seconds with a leading 0.",
                     "dateTime_example": "18:43:**04**"
                 },
+                "dateTime.locale": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Date & time locale.",
+                    "dateTime_example": "es-us"
+                },
                 "dateTime.flashTimeSeparators": {
                     "type": "boolean",
                     "default": false,
@@ -132,14 +141,6 @@
                     ],
                     "default": null,
                     "description": "Use a custom date & time format when copying."
-                },
-                "dateTime.locale": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "default": null,
-                    "description": "Locale used for formatting."
                 },
                 "dateTime.fractionalPrecision": {
                     "type": [

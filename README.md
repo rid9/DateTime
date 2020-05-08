@@ -21,12 +21,12 @@ Displays a clock and date information in the status bar.
 |`dateTime.padHours`           |`true` |Pad hours with a leading 0.                    |**09**:43     |
 |`dateTime.padMinutes`         |`true` |Pad minutes with a leading 0.                  |18:**03**     |
 |`dateTime.padSeconds`         |`true` |Pad seconds with a leading 0.                  |18:43:**04**  |
+|`dateTime.locale`             |`null` |Date & time locale.                            |es-us         |
 |`dateTime.flashTimeSeparators`|`false`|Flash the time separators.                     |              |
 |`dateTime.timeSeparator`      |`:`    |Time separator character.                      |              |
 |`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.             |              |
 |`dateTime.customFormat`       |`null` |Use a custom date & time format.               |              |
 |`dateTime.clipboardFormat`    |`null` |Use a custom date & time format when copying.  |              |
-|`dateTime.locale`             |`null` |Locale used for formatting.                    |              |
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.|              |
 
 ### Example usage
@@ -104,3 +104,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 // 2016-01-01 10:12:03
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
 ```
+
+## Date & time locale
+
+The locale can be one of:
+
+af, ar-dz, ar-kw, ar-ly, ar-ma, ar-sa, ar-tn, ar, az, be, bg, bm, bn, bo, br, bs, ca, cs, cv, cy, da, de-at, de-ch, de, dv, el, en-SG, en-au, en-ca, en-gb, en-ie, en-il, en-nz, eo, es-do, es-us, es, et, eu, fa, fi, fo, fr-ca, fr-ch, fr, fy, ga, gd, gl, gom-latn, gu, he, hi, hr, hu, hy-am, id, is, it-ch, it, ja, jv, ka, kk, km, kn, ko, ku, ky, lb, lo, lt, lv, me, mi, mk, ml, mn, mr, ms-my, ms, mt, my, nb, ne, nl-be, nl, nn, pa-in, pl, pt-br, pt, ro, ru, sd, se, si, sk, sl, sq, sr-cyrl, sr, ss, sv, sw, ta, te, tet, tg, th, tl-ph, tlh, tr, tzl, tzm-latn, tzm, ug-cn, uk, ur, uz-latn, uz, vi, x-pseudo, yo, zh-cn, zh-hk, zh-tw.

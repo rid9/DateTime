@@ -1,3 +1,5 @@
+var fs = require("fs");
+
 var packageDescription = require("./package.json");
 var packageProperties = packageDescription.contributes.configuration.properties;
 
@@ -179,6 +181,15 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 // 2016-01-01 10:12:03
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
 \`\`\`
+
+## Date & time locale
+
+The locale can be one of:
+
+${fs
+    .readdirSync("./node_modules/moment/locale")
+    .map((fileName) => fileName.replace(/\.js$/, ""))
+    .join(", ")}.
 `;
 
-require("fs").writeFileSync("./README.md", markdownText);
+fs.writeFileSync("./README.md", markdownText);
