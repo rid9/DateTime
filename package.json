@@ -135,15 +135,45 @@
                     "minimum": 1,
                     "maximum": 100
                 },
-                "dateTime.calendarMonths": {
+                "dateTime.monthsBefore": {
                     "type": [
-                        "number",
+                        "integer",
                         "null"
                     ],
-                    "default": 3,
-                    "description": "How many months to show in calendar view.",
-                    "minimum": 3,
-                    "maximum": 99
+                    "default": 1,
+                    "description": "How many prior months to show in calendar view."
+                },
+                "dateTime.monthsAfter": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 10,
+                    "description": "How many following months to show in calendar view."
+                },
+                "dateTime.monthsPerRow": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 4,
+                    "description": "How many months per row to show in calendar view."
+                },
+                "dateTime.extraHorizontalSpace": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 1,
+                    "description": "Padding between columns in calendar view."
+                },
+                "dateTime.extraVerticalSpace": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 1,
+                    "description": "Padding between rows in calendar view."
                 }
             }
         },
@@ -158,7 +188,7 @@
             },
             {
                 "command": "extension.calendar",
-                "title": "Calendar"
+                "title": "Open Calendar"
             }
         ],
         "keybindings": [
@@ -189,6 +219,7 @@
         "vscode-test": "^1.3.0"
     },
     "dependencies": {
-        "moment": "^2.11.2"
+        "moment": "^2.11.2",
+        "typecript": "0.0.1-security"
     }
 }

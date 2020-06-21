@@ -35,15 +35,23 @@ function removeDateTime() {
 }
 
 function showMonthlyCalendar() {
-    const cp = require('child_process');
-    let cf = '.vscal.md';
-    cp.execSync('MON=$(date +%-m); DAY=$(date +%-d); MONTH=$(date +%B); cd /tmp; (cal -h -m $(expr $MON - 1) | sed "1s/^ /\'/") > .vscal-1.txt; cal -h -m $(expr $MON + 1) > .vscal-3.txt; (cal -h -m $MON | sed -e "1s/ $MONTH /\[$MONTH\]/" -e "s/ $DAY /\[$DAY\]/") > .vscal-2.md; paste -d \\\\0 .vscal-1.txt .vscal-2.md .vscal-3.txt > '+cf+'; rm -f .vscal-*');
-    let months = configuration.howManyMonthsCalendar();
-    if (3 < months) {
-        cp.execSync('MON=$(date +%-m); cd /tmp; echo "" > .vscal-n.txt; cal -m $(expr $MON + 2) -A '+String(months-4)+' > .vscal-2.txt; cat '+cf+' .vscal-n.txt .vscal-2.txt > .vscal2.md; rm -f .vscal-*');
-        cf = '.vscal2.md';
-    }
-    let calendar = Uri.file('/tmp/'+cf);
+    // extension settings
+    let numMonthsToShowBefore = configuration.howManyMonthsBefore();
+    let numMonthsToShowAfter = configuration.howManyMonthsAfter();
+    let numMonthsPerRow = configuration.howManyMonthsPerRow();
+    let extraHorizontalSpace = configuration.howMuchHorizontalPadding();
+    let extraVerticalSpace = configuration.howMuchVerticalPadding();
+
+    const c = require('./cal');
+    let data : string = c.createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace);
+    const fs = require('fs');
+    const path = require('path');
+    let p = path.dirname(process.execPath);
+    fs.writeFile(`${p}/calendar.md`, data, (err: any) => {
+        if (err) {throw err;}
+    });
+    let calendar = Uri.file(`${p}/calendar.md`);
+
     window.showTextDocument(calendar);
 }
 
