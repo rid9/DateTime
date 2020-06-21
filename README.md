@@ -1,6 +1,8 @@
 # Shows Date/Time on VSCode statusbar and Monthly Calendar upon click
 
-Displays a clock and date information in the status bar of VSCode. 99% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git), and all I did here is just showing monthly calendar upon click, and at this time, that works only on Mac/Linux. Stay tuned...
+Displays a clock and date information in the status bar of VSCode. 95% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git),
+and all I did here is just showing monthly calendar upon click with some highlighting for current day.
+Now, works on Windows the same way as Mac/Linux!!
 
 ![Screenshot](./images/screenshot.png)
 
@@ -8,27 +10,31 @@ Displays a clock and date information in the status bar of VSCode. 99% of the fu
 
 ## Configuration Options
 
-|Option                        |Default|Description                                    |Example       |
-|------------------------------|-------|-----------------------------------------------|--------------|
-|`dateTime.showOnStartup`      |`true` |Show date & time on startup.                   |              |
-|`dateTime.use24HourClock`     |`true` |Use a 24 hour clock.                           |**18**:43     |
-|`dateTime.showAMPM`           |`false`|Show AM/PM.                                    |7:43 **PM**   |
-|`dateTime.showDayOfWeek`      |`false`|Show the day of the week.                      |**Fri** 1 Jul |
-|`dateTime.showDayOfMonth`     |`false`|Show the day of the month.                     |Fri **1** Jul |
-|`dateTime.showMonth`          |`false`|Show the month.                                |Fri 1 **Jul** |
-|`dateTime.showHours`          |`true` |Show hours.                                    |**18**:43     |
-|`dateTime.showMinutes`        |`true` |Show minutes.                                  |18:**43**     |
-|`dateTime.showSeconds`        |`false`|Show seconds.                                  |18:43:**12**  |
-|`dateTime.padDays`            |`false`|Pad the day of the month with a leading 0.     |Fri **01** Jul|
-|`dateTime.padHours`           |`true` |Pad hours with a leading 0.                    |**09**:43     |
-|`dateTime.padMinutes`         |`true` |Pad minutes with a leading 0.                  |18:**03**     |
-|`dateTime.padSeconds`         |`true` |Pad seconds with a leading 0.                  |18:43:**04**  |
-|`dateTime.flashTimeSeparators`|`false`|Flash the time separators.                     |              |
-|`dateTime.timeSeparator`      |`:`    |Time separator character.                      |              |
-|`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.             |              |
-|`dateTime.customFormat`       |`null` |Use a custom date & time format.               |              |
-|`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.|              |
-|`dateTime.calendarMonths`     |`3`    |How many months to show in calendar view.      |12            |
+|Option                         |Default|Description                                        |Example       |
+|-------------------------------|-------|---------------------------------------------------|--------------|
+|`dateTime.showOnStartup`       |`true` |Show date & time on startup.                       |              |
+|`dateTime.use24HourClock`      |`true` |Use a 24 hour clock.                               |**18**:43     |
+|`dateTime.showAMPM`            |`false`|Show AM/PM.                                        |7:43 **PM**   |
+|`dateTime.showDayOfWeek`       |`false`|Show the day of the week.                          |**Fri** 1 Jul |
+|`dateTime.showDayOfMonth`      |`false`|Show the day of the month.                         |Fri **1** Jul |
+|`dateTime.showMonth`           |`false`|Show the month.                                    |Fri 1 **Jul** |
+|`dateTime.showHours`           |`true` |Show hours.                                        |**18**:43     |
+|`dateTime.showMinutes`         |`true` |Show minutes.                                      |18:**43**     |
+|`dateTime.showSeconds`         |`false`|Show seconds.                                      |18:43:**12**  |
+|`dateTime.padDays`             |`false`|Pad the day of the month with a leading 0.         |Fri **01** Jul|
+|`dateTime.padHours`            |`true` |Pad hours with a leading 0.                        |**09**:43     |
+|`dateTime.padMinutes`          |`true` |Pad minutes with a leading 0.                      |18:**03**     |
+|`dateTime.padSeconds`          |`true` |Pad seconds with a leading 0.                      |18:43:**04**  |
+|`dateTime.flashTimeSeparators` |`false`|Flash the time separators.                         |              |
+|`dateTime.timeSeparator`       |`:`    |Time separator character.                          |              |
+|`dateTime.timeSeparatorOff`    |` `    |Flashing time separator character.                 |              |
+|`dateTime.customFormat`        |`null` |Use a custom date & time format.                   |              |
+|`dateTime.fractionalPrecision` |`null` |Update interval divisor for fractional seconds.    |              |
+|`dateTime.monthsBefore`        |`1`    |How many prior months to show in calendar view.    |2             |
+|`dateTime.monthsAfter`         |`1`    |How many following months to show in calendar view.|10            |
+|`dateTime.monthsPerRow`        |`3`    |How many months to show horizontally.              |4             |
+|`dateTime.extraHorizontalSpace`|`1`    |Padding between columns in calendar view.          |2             |
+|`dateTime.extraVerticalSpace`  |`1`    |Padding between rows in calendar view.             |2             |
 
 ### Example usage
 
@@ -107,6 +113,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 ```
 
 ## Release Notes
+
+### v1.3.0
+Windows support, along with finer grained calendar view customization. :star2: BIG thanks to @[tice-k](https://github.com/tice-k)! :+1:
 
 ### v1.2.0
 New hand-designed icon, while trying to sync the version# with [Marketplace](https://marketplace.visualstudio.com/items?itemName=miyamotoh.vscal2)...

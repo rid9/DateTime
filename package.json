@@ -2,7 +2,7 @@
     "name": "vscal2",
     "displayName": "Date, Time, & Calendar",
     "description": "Displays a clock and date information in the status bar, and monthly calendar upon click.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/miyamotoh/vscal2.git"
@@ -148,7 +148,7 @@
                         "integer",
                         "null"
                     ],
-                    "default": 10,
+                    "default": 1,
                     "description": "How many following months to show in calendar view."
                 },
                 "dateTime.monthsPerRow": {
@@ -156,7 +156,7 @@
                         "integer",
                         "null"
                     ],
-                    "default": 4,
+                    "default": 3,
                     "description": "How many months per row to show in calendar view."
                 },
                 "dateTime.extraHorizontalSpace": {
@@ -219,7 +219,7 @@
         "vscode-test": "^1.3.0"
     },
     "dependencies": {
-        "moment": "^2.11.2",
-        "typecript": "0.0.1-security"
+        "moment": "^2.24.0",
+        "typecript": "^0.0.1-security"
     }
 }
