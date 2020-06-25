@@ -1,7 +1,8 @@
 # Shows Date/Time on VSCode statusbar and Monthly Calendar upon click
 
-Displays a clock and date information in the status bar of VSCode. 95% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git),
+Displays a clock & date information in the status bar of VSCode. 95% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git),
 and all I did here is just showing monthly calendar upon click with some highlighting for current day.
+Beauty of this is you can quickly see a calendar without leaving VSCode or moving your fingers off keyboard (Ctrl+Cmd+C & Cmd-W on Mac).
 Now, works on Windows the same way as Mac/Linux!!
 
 ![Screenshot](./images/screenshot.png)
