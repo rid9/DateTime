@@ -2,6 +2,7 @@ const now = new Date();
 const days = ['Su','Mo','Tu','We','Th','Fr','Sa'];
 const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const lastDayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var weekStartsOn = 0;
 
 const createMonthTag = (month, year, now) => {
     let tag = '';
@@ -21,13 +22,14 @@ const createDaysTag = () => {
 const createWeekRow = (week, month, year) => {
     if (week < 0 || week > 5) {return '        ERROR         ';}
     const premier = new Date(year, month, 1);
+    const premierDay = (premier.getDay()==0 && weekStartsOn==1)? 6: premier.getDay() - weekStartsOn;
     let text = ' ';
     if (week === 0) {
         for(let i = 0; i < 7; i++) {
-            text += i < premier.getDay() ? '   ' : addSpaceToDate(i + 1 - premier.getDay(), month, year);
+            text += i < premierDay ? '   ' : addSpaceToDate(i + 1 - premierDay, month, year);
         }
     } else {
-        let firstDateOfWeek = 1 - premier.getDay() + 7 * week;
+        let firstDateOfWeek = 1 - premierDay + 7 * week;
         text = firstDateOfWeek === now.getDate() && month === now.getMonth() && year === now.getFullYear() ? '[' : ' ';
         for(let i = firstDateOfWeek; i < firstDateOfWeek + 7; i++) {
             if (month === 1 && isLeapYear(year)) {
@@ -75,11 +77,13 @@ const createRowOfCalendars = (padding, start, end) => {
     }
     return data;
 };
-const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace) => {
+const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, firstDayOfWeek) => {
     let horiPadding = '';
     for (let i = 0; i < extraHorizontalSpace; i++) {horiPadding += ' ';}
     let vertPadding = '';
     for (let i = 0; i < extraVerticalSpace; i++) {vertPadding += '\n';}
+    weekStartsOn = firstDayOfWeek;
+    for (let i = 0; i < weekStartsOn; i++) { days.push(days.shift()); }
 
     let data = '';
     for (let i = -numMonthsToShowBefore; i <= numMonthsToShowAfter; i += numMonthsPerRow) {

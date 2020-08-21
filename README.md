@@ -34,8 +34,9 @@ Now works on Windows the same way as Mac/Linux! Enjoy!!
 |`dateTime.monthsBefore`        |`1`    |How many prior months to show in calendar view.    |2             |
 |`dateTime.monthsAfter`         |`1`    |How many following months to show in calendar view.|10            |
 |`dateTime.monthsPerRow`        |`3`    |How many months to show horizontally.              |4             |
-|`dateTime.extraHorizontalSpace`|`1`    |Padding between columns in calendar view.          |2             |
-|`dateTime.extraVerticalSpace`  |`1`    |Padding between rows in calendar view.             |2             |
+|`dateTime.extraHorizontalSpace`|`1`    |Padding between columns in calendar view.          |              |
+|`dateTime.extraVerticalSpace`  |`1`    |Padding between rows in calendar view.             |              |
+|`dateTime.weekStartsOn` .      |`0`    |First day of week (0=Sun, 1=Mon) in calendar view. |              |
 
 ### Example usage
 
@@ -114,6 +115,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 ```
 
 ## Release Notes
+
+### v1.4.0
+Support for Monday as first day of week
 
 ### v1.3.1
 A little updates to README and the extension name, celebrating 100+ installs! :tada:

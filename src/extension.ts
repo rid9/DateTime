@@ -41,9 +41,10 @@ function showMonthlyCalendar() {
     let numMonthsPerRow = configuration.howManyMonthsPerRow();
     let extraHorizontalSpace = configuration.howMuchHorizontalPadding();
     let extraVerticalSpace = configuration.howMuchVerticalPadding();
+    let weekStartsOn = configuration.weekStartsOn();
 
     const c = require('./cal');
-    let data : string = c.createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace);
+    let data : string = c.createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, weekStartsOn);
     const fs = require('fs');
     const path = require('path');
     let p = path.dirname(process.execPath);

@@ -168,6 +168,10 @@ export function howMuchVerticalPadding(): number {
     return getConfiguration("extraVerticalSpace");
 }
 
+export function weekStartsOn(): number {
+    return getConfiguration("weekStartsOn");
+}
+
 export function getFormat(flashState: FlashState): string {
     if (!cache.format[flashState]) {
         cache.format[flashState] = getCustomFormat(flashState) || composeFormat(flashState);
