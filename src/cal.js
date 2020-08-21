@@ -1,4 +1,5 @@
 const lastDayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var weekStartsOn = 0;
 
 var now; // Date object
 var days = [];   // locale dependent
@@ -98,6 +99,8 @@ const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow
     for (let i = 0; i < extraHorizontalSpace; i++) {horiPadding += ' ';}
     let vertPadding = '';
     for (let i = 0; i < extraVerticalSpace; i++) {vertPadding += '\n';}
+    weekStartsOn = firstDayOfWeek;
+    for (let i = 0; i < weekStartsOn; i++) { days.push(days.shift()); }
 
     let data = '';
     for (let i = -numMonthsToShowBefore; i <= numMonthsToShowAfter; i += numMonthsPerRow) {
