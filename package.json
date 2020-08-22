@@ -2,7 +2,7 @@
     "name": "vscal2",
     "displayName": "Date Time & Calendar",
     "description": "Displays a clock and date information in the status bar, and monthly calendar upon click.",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/miyamotoh/vscal2.git"

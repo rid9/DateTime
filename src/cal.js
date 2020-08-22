@@ -1,7 +1,7 @@
 const now = new Date();
-const days = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const lastDayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var days = [];
+var months = [];
 var weekStartsOn = 0;
 
 const createMonthTag = (month, year, now) => {
@@ -78,12 +78,24 @@ const createRowOfCalendars = (padding, start, end) => {
     return data;
 };
 const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, firstDayOfWeek) => {
+    days = [];
+    for (let i = 1; i <= 7; i++) {
+        let tmp = new Date(2020, 10, i);
+        days.push(tmp.toLocaleString('default', {weekday:'long'}).substring(0,2));
+    }
+    weekStartsOn = firstDayOfWeek;
+    for (let i = 0; i < weekStartsOn; i++) { days.push(days.shift()); }
+
+    months = [];
+    for (let i = 0; i < 12; i++) {
+        let tmp = new Date(now.getFullYear(), i, 1);
+        months.push(tmp.toLocaleString('default', {month:'long'}));
+    }
+
     let horiPadding = '';
     for (let i = 0; i < extraHorizontalSpace; i++) {horiPadding += ' ';}
     let vertPadding = '';
     for (let i = 0; i < extraVerticalSpace; i++) {vertPadding += '\n';}
-    weekStartsOn = firstDayOfWeek;
-    for (let i = 0; i < weekStartsOn; i++) { days.push(days.shift()); }
 
     let data = '';
     for (let i = -numMonthsToShowBefore; i <= numMonthsToShowAfter; i += numMonthsPerRow) {
@@ -95,4 +107,4 @@ const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow
 };
 
 exports.createFile = createFile;
-// createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace);
+// createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, firstDayOfWeek);
