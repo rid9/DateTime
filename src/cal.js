@@ -1,6 +1,8 @@
 const lastDayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-var days = [];
-var months = [];
+
+var now; // Date object
+var days = [];   // locale dependent
+var months = []; // locale dependent
 var weekStartsOn = 0;
 
 var now; // Date object
