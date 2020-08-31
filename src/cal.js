@@ -1,7 +1,8 @@
-const now = new Date();
 const lastDayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-var days = [];
-var months = [];
+
+var now; // Date object
+var days = [];   // locale dependent
+var months = []; // locale dependent
 var weekStartsOn = 0;
 
 const createMonthTag = (month, year, now) => {
@@ -78,6 +79,7 @@ const createRowOfCalendars = (padding, start, end) => {
     return data;
 };
 const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, firstDayOfWeek) => {
+    now = new Date();
     days = [];
     for (let i = 1; i <= 7; i++) {
         let tmp = new Date(2020, 10, i);
@@ -99,8 +101,8 @@ const createFile = (numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow
 
     let data = '';
     for (let i = -numMonthsToShowBefore; i <= numMonthsToShowAfter; i += numMonthsPerRow) {
-        data += createRowOfCalendars(horiPadding, i, i + numMonthsPerRow - 1);
         data += vertPadding;
+        data += createRowOfCalendars(horiPadding, i, i + numMonthsPerRow - 1);
     }
 
     return data;
