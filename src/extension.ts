@@ -98,8 +98,8 @@ function updateDateTime() {
 
 function createStatusBarItem() {
     statusBarItem = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Right,
-        -1
+        configuration.getStatusBarAlignment(),
+        configuration.getStatusBarPriority()
     );
     statusBarItem.command = "dateTime.copy";
     isStatusBarVisible = true;
@@ -148,6 +148,7 @@ export function deactivate() {
 
 vscode.workspace.onDidChangeConfiguration(() => {
     if (isRunning) {
+        removeStatusBarItem();
         configuration.clearCache();
         updateDateTime();
         configuration.preCache();

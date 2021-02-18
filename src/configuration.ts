@@ -1,4 +1,4 @@
-import { env, workspace } from "vscode";
+import { env, StatusBarAlignment, workspace } from "vscode";
 
 export enum FlashState {
     On = 1,
@@ -226,6 +226,27 @@ function composeFormat(flashState: FlashState): string {
     }
 
     return format;
+}
+
+export function getStatusBarAlignment(): StatusBarAlignment {
+    return getConfiguration("statusBarAlignment") === "left"
+        ? StatusBarAlignment.Left
+        : StatusBarAlignment.Right;
+}
+
+export function getStatusBarPriority(): number {
+    const configuredPriority = getConfiguration("statusBarPriority");
+    if (typeof configuredPriority === "number") {
+        return configuredPriority;
+    }
+
+    switch (getStatusBarAlignment()) {
+        case StatusBarAlignment.Left:
+            return 100_000;
+
+        case StatusBarAlignment.Right:
+            return -100_000;
+    }
 }
 
 function escapeRegExp(string: string): string {

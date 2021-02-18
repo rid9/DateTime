@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays a clock and date information in the status bar.",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/rid9/DateTime.git"
@@ -151,6 +151,28 @@
                     "description": "Update interval divisor for fractional seconds.",
                     "minimum": 1,
                     "maximum": 100
+                },
+                "dateTime.statusBarAlignment": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "right",
+                    "description": "Status bar alignment, left or right.",
+                    "dateTime_example": "left",
+                    "enum": [
+                        "left",
+                        "right"
+                    ]
+                },
+                "dateTime.statusBarPriority": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Status bar priority. Higher means more to the left.",
+                    "dateTime_example": "10"
                 }
             }
         },
