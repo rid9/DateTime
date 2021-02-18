@@ -57,7 +57,11 @@ function getDateTimeText(
     }
 
     moment.locale(configuration.getLocale());
-    return moment().format(format);
+    return (
+        configuration.getDisplayPrefix() +
+        moment().format(format) +
+        configuration.getDisplaySuffix()
+    );
 }
 
 let currentFlashState: FlashState;

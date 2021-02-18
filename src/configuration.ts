@@ -249,6 +249,14 @@ export function getStatusBarPriority(): number {
     }
 }
 
+export function getDisplayPrefix(): string {
+    return getConfiguration("displayPrefix") || "";
+}
+
+export function getDisplaySuffix(): string {
+    return getConfiguration("displaySuffix") || "";
+}
+
 function escapeRegExp(string: string): string {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

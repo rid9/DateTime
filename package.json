@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays a clock and date information in the status bar.",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/rid9/DateTime.git"
@@ -173,6 +173,24 @@
                     "default": null,
                     "description": "Status bar priority. Higher means more to the left.",
                     "dateTime_example": "10"
+                },
+                "dateTime.displayPrefix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Prepend a string to the displayed time.",
+                    "dateTime_example": "Time:"
+                },
+                "dateTime.displaySuffix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Append a string to the displayed time.",
+                    "dateTime_example": "."
                 }
             }
         },
