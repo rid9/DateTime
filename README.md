@@ -109,15 +109,10 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
 ```
 
-<<<<<<< HEAD
-## Date & time locale
-
-The locale can be one of:
-
-af, ar-dz, ar-kw, ar-ly, ar-ma, ar-sa, ar-tn, ar, az, be, bg, bm, bn, bo, br, bs, ca, cs, cv, cy, da, de-at, de-ch, de, dv, el, en-SG, en-au, en-ca, en-gb, en-ie, en-il, en-nz, eo, es-do, es-us, es, et, eu, fa, fi, fo, fr-ca, fr-ch, fr, fy, ga, gd, gl, gom-latn, gu, he, hi, hr, hu, hy-am, id, is, it-ch, it, ja, jv, ka, kk, km, kn, ko, ku, ky, lb, lo, lt, lv, me, mi, mk, ml, mn, mr, ms-my, ms, mt, my, nb, ne, nl-be, nl, nn, pa-in, pl, pt-br, pt, ro, ru, sd, se, si, sk, sl, sq, sr-cyrl, sr, ss, sv, sw, ta, te, tet, tg, th, tl-ph, tlh, tr, tzl, tzm-latn, tzm, ug-cn, uk, ur, uz-latn, uz, vi, x-pseudo, yo, zh-cn, zh-hk, zh-tw.
-=======
 ## Release Notes
+
+### v0.2.0
+Still Mac/Linux only, and still not installable, but added `dateTime.calendarMonths` config param for customizing how many months to show in calendar view.
 
 ### v0.1.0
 Not even a "release," just adjusted it to ES6 and locally installed (by copying `package.json` and `out` to `$HOME/.vscode/extensions/miyamotoh-vscal2-0.1.0` dir) but works.. :blush:
->>>>>>> README for v0.1 and package.json cleanup
