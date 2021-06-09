@@ -1,8 +1,8 @@
 {
     "name": "vscal2",
-    "displayName": "Date, Time, & Calendar",
+    "displayName": "Date Time & Calendar",
     "description": "Displays a clock and date information in the status bar, and monthly calendar upon click.",
-    "version": "1.2.0",
+    "version": "1.4.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/miyamotoh/vscal2.git"
@@ -11,7 +11,7 @@
     "icon": "images/icon.png",
     "publisher": "miyamotoh",
     "engines": {
-        "vscode": "^1.44.0"
+        "vscode": "^1.43.0"
     },
     "categories": [
         "Other"
@@ -19,7 +19,7 @@
     "activationEvents": [
         "*"
     ],
-    "main": "./out/extension.js",
+    "main": "./out/src/extension",
     "contributes": {
         "configuration": {
             "type": "object",
@@ -102,15 +102,6 @@
                     "description": "Pad seconds with a leading 0.",
                     "dateTime_example": "18:43:**04**"
                 },
-                "dateTime.locale": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "default": null,
-                    "description": "Date & time locale.",
-                    "dateTime_example": "es-us"
-                },
                 "dateTime.flashTimeSeparators": {
                     "type": "boolean",
                     "default": false,
@@ -134,14 +125,6 @@
                     "default": null,
                     "description": "Use a custom date & time format."
                 },
-                "dateTime.clipboardFormat": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "default": null,
-                    "description": "Use a custom date & time format when copying."
-                },
                 "dateTime.fractionalPrecision": {
                     "type": [
                         "number",
@@ -152,38 +135,53 @@
                     "minimum": 1,
                     "maximum": 100
                 },
-<<<<<<< HEAD
-                "dateTime.statusBarAlignment": {
+                "dateTime.monthsBefore": {
                     "type": [
-                        "string",
+                        "integer",
                         "null"
                     ],
-                    "default": "right",
-                    "description": "Status bar alignment, left or right.",
-                    "dateTime_example": "left",
-                    "enum": [
-                        "left",
-                        "right"
-                    ]
+                    "default": 1,
+                    "description": "How many prior months to show in calendar view."
                 },
-                "dateTime.statusBarPriority": {
-=======
-                "dateTime.calendarMonths": {
->>>>>>> adding "how many months to show" as configuration
+                "dateTime.monthsAfter": {
                     "type": [
-                        "number",
+                        "integer",
                         "null"
                     ],
-<<<<<<< HEAD
-                    "default": null,
-                    "description": "Status bar priority. Higher means more to the left.",
-                    "dateTime_example": "10"
-=======
+                    "default": 1,
+                    "description": "How many following months to show in calendar view."
+                },
+                "dateTime.monthsPerRow": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
                     "default": 3,
-                    "description": "How many months to show in calendar view.",
-                    "minimum": 3,
-                    "maximum": 99
->>>>>>> adding "how many months to show" as configuration
+                    "description": "How many months per row to show in calendar view."
+                },
+                "dateTime.extraHorizontalSpace": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 1,
+                    "description": "Padding between columns in calendar view."
+                },
+                "dateTime.extraVerticalSpace": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 1,
+                    "description": "Padding between rows in calendar view."
+                },
+                "dateTime.weekStartsOn": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "default": 0,
+                    "description": "First day of week (0=Sun, 1=Mon) in calendar view."
                 }
             }
         },
@@ -198,7 +196,7 @@
             },
             {
                 "command": "extension.calendar",
-                "title": "Calendar"
+                "title": "Open Calendar"
             }
         ],
         "keybindings": [
@@ -209,8 +207,8 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "yarn run compile && node ./doc.js",
-        "compile": "tsc -p ./",
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./ ; cp -p src/*.js out/src/",
         "lint": "eslint src --ext ts",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
@@ -222,10 +220,7 @@
         "@types/glob": "^7.1.1",
         "@types/mocha": "^7.0.1",
         "@types/node": "^12.11.7",
-        "@types/vscode": "^1.44.0",
-        "@typescript-eslint/eslint-plugin": "^2.18.0",
-        "@typescript-eslint/parser": "^2.18.0",
-        "eslint": "^6.8.0",
+        "@types/vscode": "^1.43.0",
         "glob": "^7.1.6",
         "mocha": "^7.0.1",
         "typescript": "^3.7.5",
@@ -233,6 +228,6 @@
     },
     "dependencies": {
         "moment": "^2.24.0",
-        "vsce": "^1.93.0"
+        "typecript": "^0.0.1-security"
     }
 }
