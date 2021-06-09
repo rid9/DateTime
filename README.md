@@ -111,6 +111,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 
 ## Release Notes
 
+### v0.5.0
+Still Mac/Linux only, but now installable (by following [this page](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)), along with highlighting the current month in calendar view.
+
 ### v0.2.0
 Still Mac/Linux only, and still not installable, but added `dateTime.calendarMonths` config param for customizing how many months to show in calendar view.
 
