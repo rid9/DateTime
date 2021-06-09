@@ -1,6 +1,3 @@
-/// <reference path="../typings/vscode-typings.d.ts" />
-/// <reference path="../typings/moment/moment.d.ts" />
-
 import * as moment from "moment";
 import * as vscode from "vscode";
 
@@ -15,7 +12,7 @@ enum FormatType {
     Clipboard,
 }
 
-let statusBarItem: StatusBarItem;
+let statusBarItem: StatusBarItem | null;
 
 let isRunning = false;
 let isStatusBarVisible = false;
@@ -109,7 +106,7 @@ function updateDateTime() {
             return;
         }
 
-        statusBarItem.text = getDateTimeText(flashState);
+        statusBarItem.text = getDateTimeText(flashState, FormatType.Status);
 
         if (shouldShow) {
             statusBarItem.show();
@@ -126,8 +123,9 @@ function createStatusBarItem() {
         configuration.getStatusBarAlignment(),
         configuration.getStatusBarPriority()
     );
-    // statusBarItem.command = "dateTime.copy";
-    statusBarItem.command = 'extension.calendar';
+    statusBarItem.command = "dateTime.copy";
+    // I prefer to open the calendar with a command
+    // statusBarItem.command = 'extension.calendar';
     isStatusBarVisible = true;
 }
 
@@ -144,14 +142,13 @@ export function activate(context: ExtensionContext) {
     let showDateTimeCommand = commands.registerCommand("dateTime.show", showDateTime);
     let hideDateTimeCommand = commands.registerCommand("dateTime.hide", removeDateTime);
     let showCalendarCommand = commands.registerCommand('extension.calendar', () => {
-		const cp = require('child_process')
+		const cp = require('child_process');
 		cp.exec('MON=$(date +%-m); DAY=$(date +%-d); cd /tmp; cal -h -m $(expr $MON - 1) > .vscal-1.txt; cal -h -m $(expr $MON + 1) > .vscal-3.txt; (cal -h -m $MON | sed "s/ $DAY /\[$DAY\]/") > .vscal-2.md; paste .vscal-1.txt .vscal-2.md .vscal-3.txt > .vscal.md ; rm -f .vscal-[123]*', 2000);
 		let calendar = Uri.file('/tmp/.vscal.md');
 		window.showTextDocument(calendar);
 	});
     let copyDateTimeCommand = commands.registerCommand("dateTime.copy", copyDateTime);
 
-    context.subscriptions.push(statusBarItem);
     context.subscriptions.push(showDateTimeCommand);
     context.subscriptions.push(hideDateTimeCommand);
     context.subscriptions.push(showCalendarCommand);
