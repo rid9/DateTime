@@ -4,6 +4,8 @@ Displays a clock and date information in the status bar of VSCode. 99% of the fu
 
 ![Screenshot](./images/screenshot.png)
 
+![Screenshot](./images/monthly.png)
+
 ## Configuration Options
 
 |Option                        |Default|Description                                        |Example       |
