@@ -1,13 +1,13 @@
 {
-    "name": "datetime",
-    "displayName": "Date & Time",
-    "description": "Displays a clock and date information in the status bar.",
-    "version": "2.0.2",
+    "name": "vscal2",
+    "displayName": "Date, Time, & Calendar",
+    "description": "Displays a clock and date information in the status bar, and monthly calendar upon click.",
+    "version": "1.1.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/miyamotoh/DateTime.git"
+        "url": "https://github.com/miyamotoh/vscal2.git"
     },
-    "bugs": "https://github.com/miyamotoh/DateTime/issues",
+    "bugs": "https://github.com/miyamotoh/vscal2/issues",
     "icon": "images/icon.png",
     "publisher": "miyamotoh",
     "engines": {
