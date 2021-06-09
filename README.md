@@ -114,6 +114,9 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 
 ## Release Notes
 
+### v1.4.0
+Support for Monday as first day of week
+
 ### v1.3.1
 A little updates to README and the extension name, celebrating 100+ installs! :tada:
 

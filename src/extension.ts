@@ -40,13 +40,36 @@ function removeDateTime() {
     isRunning = false;
 }
 
+function showMonthlyCalendar() {
+    // extension settings
+    let numMonthsToShowBefore = configuration.howManyMonthsBefore();
+    let numMonthsToShowAfter = configuration.howManyMonthsAfter();
+    let numMonthsPerRow = configuration.howManyMonthsPerRow();
+    let extraHorizontalSpace = configuration.howMuchHorizontalPadding();
+    let extraVerticalSpace = configuration.howMuchVerticalPadding();
+    let weekStartsOn = configuration.weekStartsOn();
+
+    const c = require('./cal');
+    let data : string = c.createFile(numMonthsToShowBefore, numMonthsToShowAfter, numMonthsPerRow, extraHorizontalSpace, extraVerticalSpace, weekStartsOn);
+    const fs = require('fs');
+    const path = require('path');
+    let p = path.dirname(process.execPath);
+    fs.writeFile(`${p}/calendar.md`, data, (err: any) => {
+        if (err) {throw err;}
+    });
+    let calendar = Uri.file(`${p}/calendar.md`);
+
+    window.showTextDocument(calendar);
+}
+
 function copyDateTime() {
     vscode.env.clipboard.writeText(
         getDateTimeText(FlashState.On, FormatType.Clipboard)
     );
 }
 
-function getDateTimeText(flashState: FlashState): string {
+function getDateTimeText(flashState: FlashState,
+    formatType: FormatType): string {
     let format: string | undefined;
 
     if (formatType === FormatType.Clipboard) {
