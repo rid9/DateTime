@@ -152,6 +152,7 @@
                     "minimum": 1,
                     "maximum": 100
                 },
+<<<<<<< HEAD
                 "dateTime.statusBarAlignment": {
                     "type": [
                         "string",
@@ -166,13 +167,23 @@
                     ]
                 },
                 "dateTime.statusBarPriority": {
+=======
+                "dateTime.calendarMonths": {
+>>>>>>> adding "how many months to show" as configuration
                     "type": [
                         "number",
                         "null"
                     ],
+<<<<<<< HEAD
                     "default": null,
                     "description": "Status bar priority. Higher means more to the left.",
                     "dateTime_example": "10"
+=======
+                    "default": 3,
+                    "description": "How many months to show in calendar view.",
+                    "minimum": 3,
+                    "maximum": 99
+>>>>>>> adding "how many months to show" as configuration
                 }
             }
         },
