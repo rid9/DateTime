@@ -35,6 +35,12 @@ Now works on Windows the same way as Mac/Linux! Enjoy!!
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.    |              |
 |`dateTime.statusBarAlignment` |`right`|Status bar alignment, left or right.               |left          |
 |`dateTime.statusBarPriority`  |`null` |Status bar priority. Higher means more to the left.|10            |
+|`dateTime.monthsBefore`        |`1`    |How many prior months to show in calendar view.    |2             |
+|`dateTime.monthsAfter`         |`1`    |How many following months to show in calendar view.|10            |
+|`dateTime.monthsPerRow`        |`3`    |How many months to show horizontally.              |4             |
+|`dateTime.extraHorizontalSpace`|`1`    |Padding between columns in calendar view.          |              |
+|`dateTime.extraVerticalSpace`  |`1`    |Padding between rows in calendar view.             |              |
+|`dateTime.weekStartsOn` .      |`0`    |First day of week (0=Sun, 1=Mon) in calendar view. |              |
 
 ### Example usage
 
