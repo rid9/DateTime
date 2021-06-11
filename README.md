@@ -120,6 +120,8 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 
 ## Release Notes
 
+### v1.4.3
+Pull and merge latest from rid9
 ### v1.4.1
 Starts reading day & month names from system 'default', hoping this helps non-English (untested :wink:)
 
