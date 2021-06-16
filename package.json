@@ -208,11 +208,13 @@
                 "command": "extension.calendar",
                 "key": "Ctrl+Cmd+C"
             }
-       ]
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./ ; cp -p src/*.js out/src/ ",
+        "compile": "run-script-os",
+        "compile:darwin:linux": "tsc -p ./ ; cp -p src/*.js out/src/ ",
+        "compile:default": "tsc -p ./",
         "lint": "eslint src --ext ts",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
@@ -230,6 +232,7 @@
         "eslint": "^7.28.0",
         "glob": "^7.1.6",
         "mocha": "^7.0.1",
+        "run-script-os": "^1.1.6",
         "typescript": "^3.9.9",
         "typescript-eslint": "0.0.1-alpha.0",
         "typescript-eslint-parser": "^22.0.0",
