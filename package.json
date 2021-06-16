@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/miyamotoh/vscal2.git"
     },
-    "bugs": "https://github.com/miyamotoh/vscal2/issues",
+    "bugs": "https://github.com/mameen/vscal2/issues",
     "icon": "images/icon.png",
     "publisher": "miyamotoh",
     "engines": {
