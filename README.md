@@ -1,8 +1,13 @@
-# Date & Time
+# Shows Date/Time on VSCode statusbar and Monthly Calendar upon click
 
-Displays a clock and date information in the status bar.
+Displays a clock & date information in the status bar of VSCode. 95% of the functionality comes from the awesome [upstream](https://github.com/rid9/DateTime.git),
+and all I did here is just showing monthly calendar upon click or shortcut key with some highlighting for current day.
+Beauty of this is you can quickly see a calendar without leaving VSCode or moving your fingers off keyboard (Ctrl+Cmd+C & Cmd-W on Mac).
+Now works on Windows the same way as Mac/Linux! Enjoy!!
 
 ![Screenshot](./images/screenshot.png)
+
+![Screenshot](./images/monthly.png)
 
 ## Configuration Options
 
@@ -30,6 +35,12 @@ Displays a clock and date information in the status bar.
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.    |              |
 |`dateTime.statusBarAlignment` |`right`|Status bar alignment, left or right.               |left          |
 |`dateTime.statusBarPriority`  |`null` |Status bar priority. Higher means more to the left.|10            |
+|`dateTime.monthsBefore`        |`1`    |How many prior months to show in calendar view.    |2             |
+|`dateTime.monthsAfter`         |`1`    |How many following months to show in calendar view.|10            |
+|`dateTime.monthsPerRow`        |`3`    |How many months to show horizontally.              |4             |
+|`dateTime.extraHorizontalSpace`|`1`    |Padding between columns in calendar view.          |              |
+|`dateTime.extraVerticalSpace`  |`1`    |Padding between rows in calendar view.             |              |
+|`dateTime.weekStartsOn` .      |`0`    |First day of week (0=Sun, 1=Mon) in calendar view. |              |
 
 ### Example usage
 
@@ -107,8 +118,30 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
 ```
 
-## Date & time locale
+## Release Notes
 
-The locale can be one of:
+### v1.4.3
+Pull and merge latest from rid9
+### v1.4.1
+Starts reading day & month names from system 'default', hoping this helps non-English (untested :wink:)
 
-af, ar-dz, ar-kw, ar-ly, ar-ma, ar-sa, ar-tn, ar, az, be, bg, bm, bn, bo, br, bs, ca, cs, cv, cy, da, de-at, de-ch, de, dv, el, en-SG, en-au, en-ca, en-gb, en-ie, en-il, en-nz, eo, es-do, es-us, es, et, eu, fa, fi, fo, fr-ca, fr-ch, fr, fy, ga, gd, gl, gom-latn, gu, he, hi, hr, hu, hy-am, id, is, it-ch, it, ja, jv, ka, kk, km, kn, ko, ku, ky, lb, lo, lt, lv, me, mi, mk, ml, mn, mr, ms-my, ms, mt, my, nb, ne, nl-be, nl, nn, pa-in, pl, pt-br, pt, ro, ru, sd, se, si, sk, sl, sq, sr-cyrl, sr, ss, sv, sw, ta, te, tet, tg, th, tl-ph, tlh, tr, tzl, tzm-latn, tzm, ug-cn, uk, ur, uz-latn, uz, vi, x-pseudo, yo, zh-cn, zh-hk, zh-tw.
+### v1.4.0
+Support for Monday as first day of week
+
+### v1.3.1
+A little updates to README and the extension name, celebrating 100+ installs! :tada:
+
+### v1.3.0
+Windows support, along with finer grained calendar view customization. :star2: BIG thanks to @[tice-k](https://github.com/tice-k)! :+1:
+
+### v1.2.0
+New hand-designed icon, while trying to sync the version# with [Marketplace](https://marketplace.visualstudio.com/items?itemName=miyamotoh.vscal2)...
+
+### v0.5.0 (=v1.1.0 on VSCode Marketplace)
+Still Mac/Linux only, but now installable (by following [this page](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)), along with highlighting the current month in calendar view.
+
+### v0.2.0
+Still Mac/Linux only, and still not installable, but added `dateTime.calendarMonths` config param for customizing how many months to show in calendar view.
+
+### v0.1.0
+Not even a "release," just adjusted it to ES6 and locally installed (by copying `package.json` and `out` to `$HOME/.vscode/extensions/miyamotoh-vscal2-0.1.0` dir) but works.. :blush:

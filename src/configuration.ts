@@ -168,6 +168,30 @@ export function shouldFlashTimeSeparators(): boolean {
     return getConfiguration("flashTimeSeparators");
 }
 
+export function howManyMonthsBefore(): number {
+    return getConfiguration("monthsBefore");
+}
+
+export function howManyMonthsAfter(): number {
+    return getConfiguration("monthsAfter");
+}
+
+export function howManyMonthsPerRow(): number {
+    return getConfiguration("monthsPerRow");
+}
+
+export function howMuchHorizontalPadding(): number {
+    return getConfiguration("extraHorizontalSpace");
+}
+
+export function howMuchVerticalPadding(): number {
+    return getConfiguration("extraVerticalSpace");
+}
+
+export function weekStartsOn(): number {
+    return getConfiguration("weekStartsOn");
+}
+
 export function getFormat(flashState: FlashState): string {
     if (!cache.format[flashState]) {
         cache.format[flashState] =
