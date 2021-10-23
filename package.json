@@ -20,6 +20,7 @@
         "*"
     ],
     "main": "./out/extension.js",
+    "browser": "./out/extension.js",
     "contributes": {
         "configuration": {
             "type": "object",
