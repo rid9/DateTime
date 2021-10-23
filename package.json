@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays a clock and date information in the status bar.",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "repository": {
         "type": "git",
         "url": "https://github.com/rid9/DateTime.git"
@@ -11,7 +11,7 @@
     "icon": "images/icon.png",
     "publisher": "rid9",
     "engines": {
-        "vscode": "^1.44.0"
+        "vscode": "^1.46.0"
     },
     "categories": [
         "Other"
@@ -24,7 +24,7 @@
     "contributes": {
         "configuration": {
             "type": "object",
-            "title": "Date & Time Configuration",
+            "title": "Date & Time",
             "properties": {
                 "dateTime.showOnStartup": {
                     "type": "boolean",
@@ -213,19 +213,19 @@
         "watch": "tsc -watch -p ./"
     },
     "devDependencies": {
-        "@types/glob": "^7.1.1",
-        "@types/mocha": "^7.0.1",
+        "@types/vscode": "^1.46.0",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.0",
         "@types/node": "^12.11.7",
-        "@types/vscode": "^1.44.0",
-        "@typescript-eslint/eslint-plugin": "^2.18.0",
-        "@typescript-eslint/parser": "^2.18.0",
-        "eslint": "^6.8.0",
+        "eslint": "^7.9.0",
+        "@typescript-eslint/eslint-plugin": "^4.1.1",
+        "@typescript-eslint/parser": "^4.1.1",
         "glob": "^7.1.6",
-        "mocha": "^7.0.1",
-        "typescript": "^3.7.5",
-        "vscode-test": "^1.3.0"
+        "mocha": "^8.1.3",
+        "typescript": "^4.0.2",
+        "vscode-test": "^1.4.0"
     },
     "dependencies": {
-        "moment": "^2.24.0"
+        "moment": "^2.29.1"
     }
 }

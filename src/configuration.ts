@@ -41,9 +41,8 @@ export function clearCache() {
 
 function getConfiguration(property: string) {
     if (!cache.configuration.hasOwnProperty(property)) {
-        cache.configuration[property] = workspace.getConfiguration("dateTime")[
-            property
-        ];
+        cache.configuration[property] =
+            workspace.getConfiguration("dateTime")[property];
     }
     return cache.configuration[property];
 }
