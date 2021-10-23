@@ -30,6 +30,8 @@ Displays a clock and date information in the status bar.
 |`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.    |              |
 |`dateTime.statusBarAlignment` |`right`|Status bar alignment, left or right.               |left          |
 |`dateTime.statusBarPriority`  |`null` |Status bar priority. Higher means more to the left.|10            |
+|`dateTime.displayPrefix`      |`null` |Prepend a string to the displayed time.            |Time:         |
+|`dateTime.displaySuffix`      |`null` |Append a string to the displayed time.             |.             |
 
 ### Example usage
 
