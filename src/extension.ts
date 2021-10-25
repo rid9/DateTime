@@ -35,9 +35,7 @@ dayjs.extend((_option, dayjsClass) => {
             return boundOldFormat(formatStr);
         }
 
-        const result = boundOldFormat(
-            formatStr || "YYYY-MM-DDTHH:mm:ssZ"
-        ).replace(
+        const result = (formatStr || "YYYY-MM-DDTHH:mm:ssZ").replace(
             /Mo|Qo|DDDD|DDDo?|do|eo?|Eo?|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g,
             (match) => {
                 switch (match) {
