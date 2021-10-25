@@ -98,6 +98,8 @@ Custom date & time formats can be specified using the following format:
 |                          |`SSS`  |000 001 ... 998 999                   |
 |Unix Timestamp            |`X`    |1360013296                            |
 |Unix Millisecond Timestamp|`x`    |1360013296123                         |
+|Abbreviated Timezone      |`z`    |EST                                   |
+|Unabbreviated Timezone    |`zzz`  |Eastern Standard Time                 |
 
 ### Example usage
 
