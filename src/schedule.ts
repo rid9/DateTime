@@ -7,11 +7,17 @@ let firstUpdateTimeout: any;
 let updateInterval: any;
 
 export function startSchedule(callback: () => void) {
-    if (configuration.shouldShowFractionalSeconds()) {
+    const format = configuration.getFormat(configuration.FlashState.On);
+
+    if (
+        configuration.shouldShowFractionalSeconds() ||
+        format.indexOf("x") > -1
+    ) {
         scheduleMillisecondUpdates(callback);
     } else if (
         configuration.shouldShowSeconds() ||
-        configuration.shouldFlashTimeSeparators()
+        configuration.shouldFlashTimeSeparators() ||
+        format.indexOf("X") > -1
     ) {
         scheduleSecondUpdates(callback);
     } else {

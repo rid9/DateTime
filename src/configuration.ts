@@ -107,7 +107,14 @@ export function getFractionalPrecision(): number {
 
     if (typeof precision !== "number") {
         const format = getFormat(FlashState.On);
-        precision = Math.pow(10, (format.match(/S/g) || []).length);
+
+        let exponent = (format.match(/S/g) || []).length;
+
+        if (exponent === 0) {
+            exponent = format.indexOf("x") > -1 ? 3 : 0;
+        }
+
+        precision = Math.pow(10, exponent);
     }
 
     if (precision < 1) {
