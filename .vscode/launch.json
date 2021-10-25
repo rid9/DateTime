@@ -8,6 +8,13 @@
             "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
             "outFiles": ["${workspaceFolder}/out/**/*.js"],
             "preLaunchTask": "${defaultBuildTask}"
+        },
+        {
+            "name": "Run Compilation Output",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+            "outFiles": ["${workspaceFolder}/out/extension.js"]
         }
     ]
 }
