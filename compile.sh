@@ -2,6 +2,10 @@
 
 dir="$(realpath "${0%/*}")"
 
+if ! [ -d "${dir}/out" ]; then
+    mkdir "${dir}/out"
+fi &&
+
 rm -rf "${dir}/build" &&
 mkdir "${dir}/build" &&
 
@@ -15,7 +19,7 @@ cp "${dir}/tsconfig.json" "${dir}/build" &&
         echo "import \"dayjs/locale/$(basename "$l" | cut -d. -f1)\";" >> ./locales.ts
     done &&
 
-    sed -i.bak 's/^\(import dayjs .*;\)$/\1 import ".\/locales";/' ./extension.ts;
+    sed -i.bak 's/^\(import .* from "dayjs";.*\)$/\1 import ".\/locales";/' ./extension.ts;
 
     esbuild \
         --bundle \
@@ -24,5 +28,9 @@ cp "${dir}/tsconfig.json" "${dir}/build" &&
         --external:vscode \
         --outfile=./extension.js \
         --target=es2017 \
-        ./extension.ts
+        ./extension.ts &&
+
+    mv ./extension.js "${dir}/out/" &&
+
+    rm -rf "${dir}/build"
 )
