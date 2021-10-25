@@ -7,7 +7,7 @@ let firstUpdateTimeout: any;
 let updateInterval: any;
 
 export function startSchedule(callback: () => void) {
-    const format = configuration.getFormat(configuration.FlashState.On);
+    const format = configuration.getFormat(configuration.FlashState.on);
 
     if (
         configuration.shouldShowFractionalSeconds() ||

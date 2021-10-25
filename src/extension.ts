@@ -86,8 +86,8 @@ dayjs.extend((_option, dayjsClass) => {
 });
 
 enum FormatType {
-    Status,
-    Clipboard,
+    status,
+    clipboard,
 }
 
 let statusBarItem: vscode.StatusBarItem | undefined;
@@ -117,7 +117,7 @@ function removeDateTime() {
 
 function copyDateTime() {
     vscode.env.clipboard.writeText(
-        getDateTimeText(FlashState.On, FormatType.Clipboard)
+        getDateTimeText(FlashState.on, FormatType.clipboard)
     );
 }
 
@@ -127,9 +127,9 @@ function getDateTimeText(
 ): string {
     let format: string | undefined;
 
-    if (formatType === FormatType.Clipboard) {
+    if (formatType === FormatType.clipboard) {
         format =
-            configuration.getCustomFormat(FlashState.On, "clipboardFormat") ||
+            configuration.getCustomFormat(FlashState.on, "clipboardFormat") ||
             undefined;
     }
 
@@ -151,11 +151,11 @@ function updateDateTime() {
 
         if (configuration.shouldFlashTimeSeparators()) {
             flashState = currentFlashState =
-                currentFlashState === FlashState.On
-                    ? FlashState.Off
-                    : FlashState.On;
+                currentFlashState === FlashState.on
+                    ? FlashState.off
+                    : FlashState.on;
         } else {
-            flashState = FlashState.On;
+            flashState = FlashState.on;
         }
 
         let shouldShow = false;
@@ -168,7 +168,7 @@ function updateDateTime() {
             return;
         }
 
-        statusBarItem.text = getDateTimeText(flashState, FormatType.Status);
+        statusBarItem.text = getDateTimeText(flashState, FormatType.status);
 
         if (shouldShow) {
             statusBarItem.show();

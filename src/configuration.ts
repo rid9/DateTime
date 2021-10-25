@@ -1,14 +1,14 @@
 import { env, StatusBarAlignment, workspace } from "vscode";
 
 export enum FlashState {
-    On = 1,
-    Off = 2,
+    on = 1,
+    off = 2,
 }
 
 let cache: {
     format: {
-        [FlashState.On]: string | null;
-        [FlashState.Off]: string | null;
+        [FlashState.on]: string | null;
+        [FlashState.off]: string | null;
     };
     configuration: {
         [key: string]: any;
@@ -18,20 +18,20 @@ let cache: {
 function getDefaultCache() {
     return {
         format: {
-            [FlashState.On]: null,
-            [FlashState.Off]: null,
+            [FlashState.on]: null,
+            [FlashState.off]: null,
         },
         configuration: {},
     };
 }
 
 export function preCache() {
-    if (!cache.format[FlashState.On]) {
-        getFormat(FlashState.On);
+    if (!cache.format[FlashState.on]) {
+        getFormat(FlashState.on);
     }
 
-    if (!cache.format[FlashState.Off] && shouldFlashTimeSeparators()) {
-        getFormat(FlashState.Off);
+    if (!cache.format[FlashState.off] && shouldFlashTimeSeparators()) {
+        getFormat(FlashState.off);
     }
 }
 
@@ -61,7 +61,7 @@ export function getCustomFormat(
         return null;
     }
 
-    if (flashState === FlashState.On) {
+    if (flashState === FlashState.on) {
         return format;
     } else {
         const reSeparator = getFormatTimeSeparatorRegExp();
@@ -70,7 +70,7 @@ export function getCustomFormat(
 }
 
 export function hasCustomFormat(): boolean {
-    return getCustomFormat(FlashState.On) !== null;
+    return getCustomFormat(FlashState.on) !== null;
 }
 
 export function getLocale(): string {
@@ -95,7 +95,7 @@ export function shouldShowMinutes(): boolean {
 }
 
 export function shouldShowSeconds(): boolean {
-    const customFormat = getCustomFormat(FlashState.On);
+    const customFormat = getCustomFormat(FlashState.on);
     if (customFormat && customFormat.indexOf("s") > -1) {
         return true;
     }
@@ -103,14 +103,14 @@ export function shouldShowSeconds(): boolean {
 }
 
 export function shouldShowFractionalSeconds(): boolean {
-    return getFormat(FlashState.On).indexOf("S") > -1;
+    return getFormat(FlashState.on).indexOf("S") > -1;
 }
 
 export function getFractionalPrecision(): number {
     let precision: number = getConfiguration("fractionalPrecision");
 
     if (typeof precision !== "number") {
-        const format = getFormat(FlashState.On);
+        const format = getFormat(FlashState.on);
 
         let exponent = (format.match(/S/g) || []).length;
 
@@ -188,12 +188,12 @@ export function getFormat(flashState: FlashState): string {
 }
 
 export function hasFormat(): boolean {
-    return getFormat(FlashState.On).length > 0;
+    return getFormat(FlashState.on).length > 0;
 }
 
 function composeFormat(flashState: FlashState): string {
     const separator =
-        flashState === FlashState.On
+        flashState === FlashState.on
             ? getTimeSeparator()
             : getTimeSeparatorOff();
 
