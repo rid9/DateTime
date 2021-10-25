@@ -137,11 +137,9 @@ function getDateTimeText(
         format = configuration.getFormat(flashState);
     }
 
-    dayjs.locale(configuration.getLocale());
-
     return (
         configuration.getDisplayPrefix() +
-        dayjs().format(format) +
+        dayjs().locale(configuration.getLocale()).format(format) +
         configuration.getDisplaySuffix()
     );
 }
