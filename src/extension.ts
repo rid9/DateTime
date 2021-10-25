@@ -38,7 +38,7 @@ dayjs.extend((_option, dayjsClass) => {
         const result = boundOldFormat(
             formatStr || "YYYY-MM-DDTHH:mm:ssZ"
         ).replace(
-            /Mo|Qo|DDDD|DDDo|DDD|do|e|E|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g,
+            /Mo|Qo|DDDD|DDDo?|do|eo?|Eo?|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g,
             (match) => {
                 switch (match) {
                     case "Mo":
@@ -55,8 +55,12 @@ dayjs.extend((_option, dayjsClass) => {
                         return ordinal(parseInt(boundOldFormat("d"), 10));
                     case "e":
                         return this.weekday().toString();
+                    case "eo":
+                        return ordinal(this.weekday());
                     case "E":
                         return this.isoWeekday().toString();
+                    case "Eo":
+                        return ordinal(this.isoWeekday());
                     case "Wo":
                         return ordinal(parseInt(boundOldFormat("W"), 10));
                     case "gg":

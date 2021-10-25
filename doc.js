@@ -143,7 +143,9 @@ Custom date & time formats can be specified using the following format:
 |                          |\`ddd\`  |Sun Mon ... Fri Sat                   |
 |                          |\`dddd\` |Sunday Monday ... Friday Saturday     |
 |Day of Week (Locale)      |\`e\`    |0 1 ... 5 6                           |
+|                          |\`eo\`   |0th 1st ... 5th 6th                   |
 |Day of Week (ISO)         |\`E\`    |1 2 ... 6 7                           |
+|                          |\`Eo\`   |1st 2nd ... 6th 7th                   |
 |Week of Year              |\`w\`    |1 2 ... 52 53                         |
 |                          |\`wo\`   |1st 2nd ... 52nd 53rd                 |
 |                          |\`ww\`   |01 02 ... 52 53                       |

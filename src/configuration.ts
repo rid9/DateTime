@@ -69,6 +69,10 @@ export function getCustomFormat(
     }
 }
 
+export function hasCustomFormat(): boolean {
+    return getCustomFormat(FlashState.On) !== null;
+}
+
 export function getLocale(): string {
     return getConfiguration("locale") || env.language;
 }
