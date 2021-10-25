@@ -1,8 +1,87 @@
-import * as moment from "moment";
+import dayjs, { Dayjs } from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import dayOfYear from "dayjs/plugin/dayOfYear";
+import isoWeek from "dayjs/plugin/isoWeek";
+import timezone from "dayjs/plugin/timezone";
+import weekday from "dayjs/plugin/weekday";
+import weekOfYear from "dayjs/plugin/weekOfYear";
+import weekYear from "dayjs/plugin/weekYear";
 import * as vscode from "vscode";
 import * as configuration from "./configuration";
 import { FlashState } from "./configuration";
 import { startSchedule, stopSchedule } from "./schedule";
+
+dayjs.extend(weekday);
+dayjs.extend(weekYear);
+dayjs.extend(weekOfYear);
+dayjs.extend(isoWeek);
+dayjs.extend(timezone);
+dayjs.extend(dayOfYear);
+dayjs.extend(advancedFormat);
+dayjs.extend((_option, dayjsClass) => {
+    const oldFormat = dayjsClass.prototype.format;
+
+    dayjsClass.prototype.format = function (
+        this: Dayjs,
+        formatStr: string
+    ): string {
+        const ordinal = (this as any).$locale().ordinal as (
+            number: number
+        ) => string;
+
+        const boundOldFormat = oldFormat.bind(this);
+
+        if (!this.isValid()) {
+            return boundOldFormat(formatStr);
+        }
+
+        const result = boundOldFormat(
+            formatStr || "YYYY-MM-DDTHH:mm:ssZ"
+        ).replace(
+            /Mo|Qo|DDDD|DDDo|DDD|do|e|E|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g,
+            (match) => {
+                switch (match) {
+                    case "Mo":
+                        return ordinal(this.get("month") + 1);
+                    case "Qo":
+                        return ordinal(parseInt(boundOldFormat("Q"), 10));
+                    case "DDD":
+                        return this.dayOfYear().toString();
+                    case "DDDo":
+                        return ordinal(this.dayOfYear());
+                    case "DDDD":
+                        return this.dayOfYear().toString().padStart(3, "0");
+                    case "do":
+                        return ordinal(parseInt(boundOldFormat("d"), 10));
+                    case "e":
+                        return this.weekday().toString();
+                    case "E":
+                        return this.isoWeekday().toString();
+                    case "Wo":
+                        return ordinal(parseInt(boundOldFormat("W"), 10));
+                    case "gg":
+                        return this.weekYear().toString().slice(-2);
+                    case "GG":
+                        return this.isoWeekYear().toString().slice(-2);
+                    case "SSS":
+                        return this.get("millisecond").toString();
+                    case "SS":
+                        return Math.floor(
+                            this.get("millisecond") / 10
+                        ).toString();
+                    case "S":
+                        return Math.floor(
+                            this.get("millisecond") / 100
+                        ).toString();
+                    default:
+                        return match;
+                }
+            }
+        );
+
+        return boundOldFormat(result);
+    };
+});
 
 enum FormatType {
     Status,
@@ -56,10 +135,11 @@ function getDateTimeText(
         format = configuration.getFormat(flashState);
     }
 
-    moment.locale(configuration.getLocale());
+    dayjs.locale(configuration.getLocale());
+
     return (
         configuration.getDisplayPrefix() +
-        moment().format(format) +
+        dayjs().format(format) +
         configuration.getDisplaySuffix()
     );
 }

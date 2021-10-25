@@ -120,7 +120,7 @@ markdownText +=
 
 ## Custom date & time format
 
-Custom date & time formats can be specified using the [Moment.js syntax](http://momentjs.com/docs/#/displaying/format/).
+Custom date & time formats can be specified using the following format:
 
 |                          |Token  |Output                                |
 |--------------------------|-------|--------------------------------------|
@@ -171,6 +171,8 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 |                          |\`SSS\`  |000 001 ... 998 999                   |
 |Unix Timestamp            |\`X\`    |1360013296                            |
 |Unix Millisecond Timestamp|\`x\`    |1360013296123                         |
+|Abbreviated Timezone      |\`z\`    |EST                                   |
+|Unabbreviated Timezone    |\`zzz\`  |Eastern Standard Time                 |
 
 ### Example usage
 
@@ -187,7 +189,8 @@ Custom date & time formats can be specified using the [Moment.js syntax](http://
 The locale can be one of:
 
 ${fs
-    .readdirSync("./node_modules/moment/locale")
+    .readdirSync("./node_modules/dayjs/locale")
+    .filter((fileName) => fileName.indexOf(".js") === fileName.length - 3)
     .map((fileName) => fileName.replace(/\.js$/, ""))
     .join(", ")}.
 `;
