@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays a clock and date information in the status bar.",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "license": "MIT",
     "repository": {
         "type": "git",

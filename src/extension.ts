@@ -66,11 +66,13 @@ dayjs.extend((_option, dayjsClass) => {
                     case "GG":
                         return this.isoWeekYear().toString().slice(-2);
                     case "SSS":
-                        return this.get("millisecond").toString();
+                        return this.get("millisecond")
+                            .toString()
+                            .padStart(3, "0");
                     case "SS":
-                        return Math.floor(
-                            this.get("millisecond") / 10
-                        ).toString();
+                        return Math.floor(this.get("millisecond") / 10)
+                            .toString()
+                            .padStart(2, "0");
                     case "S":
                         return Math.floor(
                             this.get("millisecond") / 100
