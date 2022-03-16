@@ -11,6 +11,57 @@ import * as configuration from "./configuration";
 import { FlashState } from "./configuration";
 import { startSchedule, stopSchedule } from "./schedule";
 
+const reEscape = /(\[.+?\])/;
+const reFormat = /Mo|Qo|DDDD|DDDo?|do|eo?|Eo?|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g;
+
+function formatReplace(
+    formatStr: string,
+    ordinal: (number: number) => string,
+    dayjs: dayjs.Dayjs,
+    boundOldFormat: (template?: string | undefined) => string
+): string {
+    return formatStr.replace(reFormat, (match) => {
+        switch (match) {
+            case "Mo":
+                return ordinal(dayjs.get("month") + 1);
+            case "Qo":
+                return ordinal(parseInt(boundOldFormat("Q"), 10));
+            case "DDD":
+                return dayjs.dayOfYear().toString();
+            case "DDDo":
+                return ordinal(dayjs.dayOfYear());
+            case "DDDD":
+                return dayjs.dayOfYear().toString().padStart(3, "0");
+            case "do":
+                return ordinal(parseInt(boundOldFormat("d"), 10));
+            case "e":
+                return dayjs.weekday().toString();
+            case "eo":
+                return ordinal(dayjs.weekday());
+            case "E":
+                return dayjs.isoWeekday().toString();
+            case "Eo":
+                return ordinal(dayjs.isoWeekday());
+            case "Wo":
+                return ordinal(parseInt(boundOldFormat("W"), 10));
+            case "gg":
+                return dayjs.weekYear().toString().slice(-2);
+            case "GG":
+                return dayjs.isoWeekYear().toString().slice(-2);
+            case "SSS":
+                return dayjs.get("millisecond").toString().padStart(3, "0");
+            case "SS":
+                return Math.floor(dayjs.get("millisecond") / 10)
+                    .toString()
+                    .padStart(2, "0");
+            case "S":
+                return Math.floor(dayjs.get("millisecond") / 100).toString();
+            default:
+                return match;
+        }
+    });
+}
+
 dayjs.extend(weekday);
 dayjs.extend(weekYear);
 dayjs.extend(weekOfYear);
@@ -35,53 +86,14 @@ dayjs.extend((_option, dayjsClass) => {
             return boundOldFormat(formatStr);
         }
 
-        const result = (formatStr || "YYYY-MM-DDTHH:mm:ssZ").replace(
-            /Mo|Qo|DDDD|DDDo?|do|eo?|Eo?|Wo|gggg|gg|GGGG|GG|SSS|SS|S/g,
-            (match) => {
-                switch (match) {
-                    case "Mo":
-                        return ordinal(this.get("month") + 1);
-                    case "Qo":
-                        return ordinal(parseInt(boundOldFormat("Q"), 10));
-                    case "DDD":
-                        return this.dayOfYear().toString();
-                    case "DDDo":
-                        return ordinal(this.dayOfYear());
-                    case "DDDD":
-                        return this.dayOfYear().toString().padStart(3, "0");
-                    case "do":
-                        return ordinal(parseInt(boundOldFormat("d"), 10));
-                    case "e":
-                        return this.weekday().toString();
-                    case "eo":
-                        return ordinal(this.weekday());
-                    case "E":
-                        return this.isoWeekday().toString();
-                    case "Eo":
-                        return ordinal(this.isoWeekday());
-                    case "Wo":
-                        return ordinal(parseInt(boundOldFormat("W"), 10));
-                    case "gg":
-                        return this.weekYear().toString().slice(-2);
-                    case "GG":
-                        return this.isoWeekYear().toString().slice(-2);
-                    case "SSS":
-                        return this.get("millisecond")
-                            .toString()
-                            .padStart(3, "0");
-                    case "SS":
-                        return Math.floor(this.get("millisecond") / 10)
-                            .toString()
-                            .padStart(2, "0");
-                    case "S":
-                        return Math.floor(
-                            this.get("millisecond") / 100
-                        ).toString();
-                    default:
-                        return match;
-                }
-            }
-        );
+        let result = "";
+
+        const split = formatStr.split(reEscape);
+        for (let i = 0, len = split.length; i < len; i += 2) {
+            result +=
+                formatReplace(split[i], ordinal, this, boundOldFormat) +
+                (split[i + 1] || "");
+        }
 
         return boundOldFormat(result);
     };

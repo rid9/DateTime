@@ -175,12 +175,13 @@ Custom date & time formats can be specified using the following format:
 |Unix Millisecond Timestamp|\`x\`    |1360013296123                         |
 |Abbreviated Timezone      |\`z\`    |EST                                   |
 |Unabbreviated Timezone    |\`zzz\`  |Eastern Standard Time                 |
+|Escape                    |\`[...]\`|Text between \`[\` and \`]\` is escaped   |
 
 ### Example usage
 
 \`\`\`javascript
-// Friday, January 1st, 2016
-"dateTime.customFormat": "dddd, MMMM Do, YYYY"
+// Friday, January the 1st, 2016
+"dateTime.customFormat": "dddd, MMMM [the] Do, YYYY"
 
 // 2016-01-01 10:12:03
 "dateTime.customFormat": "YYYY-MM-DD HH:mm:ss"
