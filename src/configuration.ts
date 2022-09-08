@@ -77,6 +77,10 @@ export function getLocale(): string {
     return getConfiguration("locale") || env.language;
 }
 
+export function getTimeZone(): string|null {
+    return getConfiguration("timeZone") || null;
+}
+
 const timeCharacters = "HhmSs";
 function getFormatTimeSeparatorRegExp(): RegExp {
     const separator = escapeRegExp(getTimeSeparator());

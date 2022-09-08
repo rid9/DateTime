@@ -3,6 +3,7 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import dayOfYear from "dayjs/plugin/dayOfYear";
 import isoWeek from "dayjs/plugin/isoWeek";
 import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import weekYear from "dayjs/plugin/weekYear";
@@ -66,6 +67,7 @@ dayjs.extend(weekday);
 dayjs.extend(weekYear);
 dayjs.extend(weekOfYear);
 dayjs.extend(isoWeek);
+dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(dayOfYear);
 dayjs.extend(advancedFormat);
@@ -151,9 +153,23 @@ function getDateTimeText(
         format = configuration.getFormat(flashState);
     }
 
+    let time;
+
+    const timeZone = configuration.getTimeZone();
+    if (typeof timeZone === "string") {
+        time = dayjs()
+            .locale(configuration.getLocale())
+            .tz(timeZone)
+            .format(format);
+    } else {
+        time = dayjs()
+            .locale(configuration.getLocale())
+            .format(format);
+    }
+
     return (
         configuration.getDisplayPrefix() +
-        dayjs().locale(configuration.getLocale()).format(format) +
+        time +
         configuration.getDisplaySuffix()
     );
 }

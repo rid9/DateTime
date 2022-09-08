@@ -30,6 +30,7 @@ var fields = [
     field({ title: "Example", name: "dateTime_example" }),
 ];
 
+
 fields.forEach(function (field) {
     field.maximumLength = field.title.length;
 });
@@ -191,11 +192,37 @@ Custom date & time formats can be specified using the following format:
 
 The locale can be one of:
 
-${fs
-    .readdirSync("./node_modules/dayjs/locale")
+- ${
+    packageDescription.contributes.configuration.properties["dateTime.locale"]
+        .enum = [],
+    fs
+    .readdirSync("./node_modules/dayjs/esm/locale")
     .filter((fileName) => fileName.indexOf(".js") === fileName.length - 3)
-    .map((fileName) => fileName.replace(/\.js$/, ""))
-    .join(", ")}.
+    .map((fileName) => {
+        const [name, abbr] = (
+            fs.readFileSync(
+                "./node_modules/dayjs/esm/locale/" + fileName, "utf8"
+            ).split('\n')[0].replace('//', '')
+        ).split('[').map(p => p.replace(']', '').trim());
+
+        packageDescription.contributes.configuration
+            .properties["dateTime.locale"].enum.push(abbr);
+
+        return abbr + ' - *' + name + '*';
+    })
+    .join("\n- ")}
+
+## Time Zones
+
+The time zone can be one of:
+
+- ${packageDescription.contributes.configuration.properties["dateTime.timeZone"]
+    .enum.join("\n- ")}
 `;
 
 fs.writeFileSync("./README.md", markdownText);
+
+fs.writeFileSync(
+    "./package.json",
+    JSON.stringify(packageDescription, null, 4) + "\n"
+);
