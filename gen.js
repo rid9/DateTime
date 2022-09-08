@@ -12,7 +12,7 @@ markdownText += "# " + packageDescription.displayName + "\n\n";
 // Description
 
 markdownText += packageDescription.description + "\n\n";
-markdownText += "![Screenshot](./images/screenshot.png)\n\n";
+markdownText += '<img src="./images/screenshot.png" width="300">\n\n';
 
 // Options
 
@@ -197,18 +197,21 @@ The locale can be one of:
         .enum = [],
     fs
     .readdirSync("./node_modules/dayjs/esm/locale")
-    .filter((fileName) => fileName.indexOf(".js") === fileName.length - 3)
+    .filter((fileName) => (
+        fileName.indexOf(".js") === fileName.length - 3 &&
+        fileName.indexOf("x-pseudo") === -1
+    ))
     .map((fileName) => {
         const [name, abbr] = (
             fs.readFileSync(
                 "./node_modules/dayjs/esm/locale/" + fileName, "utf8"
-            ).split('\n')[0].replace('//', '')
-        ).split('[').map(p => p.replace(']', '').trim());
+            ).split("\n")[0].replace("//", "")
+        ).split("[").map(p => p.replace("]", "").trim());
 
         packageDescription.contributes.configuration
             .properties["dateTime.locale"].enum.push(abbr);
 
-        return abbr + ' - *' + name + '*';
+        return abbr + " - *" + name + "*";
     })
     .join("\n- ")}
 

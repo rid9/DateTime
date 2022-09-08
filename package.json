@@ -2,7 +2,7 @@
     "name": "datetime",
     "displayName": "Date & Time",
     "description": "Displays a clock and date information in the status bar.",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -252,7 +252,6 @@
                         "uz-latn",
                         "uz",
                         "vi",
-                        "x-pseudo",
                         "yo",
                         "zh-cn",
                         "zh-hk",
@@ -700,7 +699,7 @@
                     ],
                     "default": null,
                     "description": "Time zone.",
-                    "dateTime_example": "America/New_York"
+                    "dateTime_example": "Europe/Paris"
                 },
                 "dateTime.flashTimeSeparators": {
                     "type": "boolean",
@@ -797,7 +796,7 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "yarn run compile && node ./doc.js",
+        "vscode:prepublish": "yarn run compile && node ./gen.js",
         "compile": "bash ./compile.sh",
         "lint": "eslint src --ext ts",
         "watch": "tsc -watch -p ./"

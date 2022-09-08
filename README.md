@@ -2,37 +2,37 @@
 
 Displays a clock and date information in the status bar.
 
-![Screenshot](./images/screenshot.png)
+<img src="./images/screenshot.png" width="300">
 
 ## Configuration Options
 
-|Option                        |Default|Description                                        |Example         |
-|------------------------------|-------|---------------------------------------------------|----------------|
-|`dateTime.showOnStartup`      |`true` |Show date & time on startup.                       |                |
-|`dateTime.use24HourClock`     |`true` |Use a 24 hour clock.                               |**18**:43       |
-|`dateTime.showAMPM`           |`false`|Show AM/PM.                                        |7:43 **PM**     |
-|`dateTime.showDayOfWeek`      |`false`|Show the day of the week.                          |**Fri** 1 Jul   |
-|`dateTime.showDayOfMonth`     |`false`|Show the day of the month.                         |Fri **1** Jul   |
-|`dateTime.showMonth`          |`false`|Show the month.                                    |Fri 1 **Jul**   |
-|`dateTime.showHours`          |`true` |Show hours.                                        |**18**:43       |
-|`dateTime.showMinutes`        |`true` |Show minutes.                                      |18:**43**       |
-|`dateTime.showSeconds`        |`false`|Show seconds.                                      |18:43:**12**    |
-|`dateTime.padDays`            |`false`|Pad the day of the month with a leading 0.         |Fri **01** Jul  |
-|`dateTime.padHours`           |`true` |Pad hours with a leading 0.                        |**09**:43       |
-|`dateTime.padMinutes`         |`true` |Pad minutes with a leading 0.                      |18:**03**       |
-|`dateTime.padSeconds`         |`true` |Pad seconds with a leading 0.                      |18:43:**04**    |
-|`dateTime.locale`             |`null` |Date & time locale.                                |es-us           |
-|`dateTime.timeZone`           |`null` |Time zone.                                         |America/New_York|
-|`dateTime.flashTimeSeparators`|`false`|Flash the time separators.                         |                |
-|`dateTime.timeSeparator`      |`:`    |Time separator character.                          |                |
-|`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.                 |                |
-|`dateTime.customFormat`       |`null` |Use a custom date & time format.                   |                |
-|`dateTime.clipboardFormat`    |`null` |Use a custom date & time format when copying.      |                |
-|`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.    |                |
-|`dateTime.statusBarAlignment` |`right`|Status bar alignment, left or right.               |left            |
-|`dateTime.statusBarPriority`  |`null` |Status bar priority. Higher means more to the left.|10              |
-|`dateTime.displayPrefix`      |`null` |Prepend a string to the displayed time.            |Time:           |
-|`dateTime.displaySuffix`      |`null` |Append a string to the displayed time.             |.               |
+|Option                        |Default|Description                                        |Example       |
+|------------------------------|-------|---------------------------------------------------|--------------|
+|`dateTime.showOnStartup`      |`true` |Show date & time on startup.                       |              |
+|`dateTime.use24HourClock`     |`true` |Use a 24 hour clock.                               |**18**:43     |
+|`dateTime.showAMPM`           |`false`|Show AM/PM.                                        |7:43 **PM**   |
+|`dateTime.showDayOfWeek`      |`false`|Show the day of the week.                          |**Fri** 1 Jul |
+|`dateTime.showDayOfMonth`     |`false`|Show the day of the month.                         |Fri **1** Jul |
+|`dateTime.showMonth`          |`false`|Show the month.                                    |Fri 1 **Jul** |
+|`dateTime.showHours`          |`true` |Show hours.                                        |**18**:43     |
+|`dateTime.showMinutes`        |`true` |Show minutes.                                      |18:**43**     |
+|`dateTime.showSeconds`        |`false`|Show seconds.                                      |18:43:**12**  |
+|`dateTime.padDays`            |`false`|Pad the day of the month with a leading 0.         |Fri **01** Jul|
+|`dateTime.padHours`           |`true` |Pad hours with a leading 0.                        |**09**:43     |
+|`dateTime.padMinutes`         |`true` |Pad minutes with a leading 0.                      |18:**03**     |
+|`dateTime.padSeconds`         |`true` |Pad seconds with a leading 0.                      |18:43:**04**  |
+|`dateTime.locale`             |`null` |Date & time locale.                                |es-us         |
+|`dateTime.timeZone`           |`null` |Time zone.                                         |Europe/Paris  |
+|`dateTime.flashTimeSeparators`|`false`|Flash the time separators.                         |              |
+|`dateTime.timeSeparator`      |`:`    |Time separator character.                          |              |
+|`dateTime.timeSeparatorOff`   |` `    |Flashing time separator character.                 |              |
+|`dateTime.customFormat`       |`null` |Use a custom date & time format.                   |              |
+|`dateTime.clipboardFormat`    |`null` |Use a custom date & time format when copying.      |              |
+|`dateTime.fractionalPrecision`|`null` |Update interval divisor for fractional seconds.    |              |
+|`dateTime.statusBarAlignment` |`right`|Status bar alignment, left or right.               |left          |
+|`dateTime.statusBarPriority`  |`null` |Status bar priority. Higher means more to the left.|10            |
+|`dateTime.displayPrefix`      |`null` |Prepend a string to the displayed time.            |Time:         |
+|`dateTime.displaySuffix`      |`null` |Append a string to the displayed time.             |.             |
 
 ### Example usage
 
@@ -256,7 +256,6 @@ The locale can be one of:
 - uz-latn - *Uzbek Latin*
 - uz - *Uzbek*
 - vi - *Vietnamese*
-- x-pseudo - *Pseudo*
 - yo - *Yoruba Nigeria*
 - zh-cn - *Chinese (China)*
 - zh-hk - *Chinese (Hong Kong)*
